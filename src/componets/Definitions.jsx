@@ -1,16 +1,21 @@
 import React from "react";
 
 class Definitions extends React.Component {
-    render() {
+
+    renderList(){
         const {data} = this.props
+        return data.map(item => (
+            <React.Fragment key={item.id}>
+                <dt>{item.dt}</dt>
+                <dd>{item.dd}</dd>
+            </React.Fragment>
+        ))
+    }
+    render() {
+
 
         return <dl>
-            {data.map(item => (
-                <React.Fragment key={item.id}>
-                    <dt>{item.dt}</dt>
-                    <dd>{item.dd}</dd>
-                </React.Fragment>
-            ))}
+            {this.renderList()}
         </dl>
     }
 }
