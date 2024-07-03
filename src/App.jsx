@@ -1,11 +1,11 @@
-import Hello from "./componets/Hello.jsx";
+import Card from "./componets/Card.jsx";
 
 
 function App() {
 
   return (
     <div className="App">
-      <Hello />
+      <Card />
     </div>
   )
 }
