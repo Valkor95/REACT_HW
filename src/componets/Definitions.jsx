@@ -2,26 +2,16 @@ import React from "react";
 
 class Definitions extends React.Component {
     render() {
-        const definitions = [
-            {dt: 'one', dd: 'two', id: 1},
-            {dt: 'another term', dd: 'another description', id: 2},
-        ];
+        const {data} = this.props
 
-        return <div>
-        <dl>
-            <dt>one</dt>
-            <dd>two</dd>
-            <dt>another term</dt>
-            <dd>another description</dd>
+        return <dl>
+            {data.map(item => (
+                <React.Fragment key={item.id}>
+                    <dt>{item.dt}</dt>
+                    <dd>{item.dd}</dd>
+                </React.Fragment>
+            ))}
         </dl>
-
-        <dl>
-            <dt>Coffee</dt>
-            <dd>Black hot drink</dd>
-            <dt>Milk</dt>
-            <dd>White cold drink</dd>
-        </dl>
-        </div>
     }
 }
 
