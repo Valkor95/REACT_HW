@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 class Alert extends React.Component {
     render() {
-        const {text, type} = this.props;d
+        const {text, type} = this.props;
         const alertClass = cn('alert', `alert-${type}`);
 
         return (
