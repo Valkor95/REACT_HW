@@ -1,8 +1,13 @@
-# React + Vite
+# HW 80. Progress.jsx
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Реализуйте и экспортируйте по умолчанию компонент Progress, который принимает свойство percentage и рисует статический прогресс бар.
 
-Currently, two official plugins are available:
+Использование — <Progress percentage={40} />;
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Результат — <div class="progress">
+<div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="progressbar" style="width: 40%;">
+</div>
+</div>
+
+Стиль width – вычисляется динамически
+Атрибут aria-valuenow – вычисляется динамически
