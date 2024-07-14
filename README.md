@@ -1,8 +1,7 @@
-# React + Vite
+# HW 83. BtnGroup.jsx
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Реализуйте компонент BtnGroup, который отрисовывает две кнопки. Нажатие на любую из кнопок делает ее активной, а другую неактивной. При первой загрузке ни одна из кнопок не нажата.
 
-Currently, two official plugins are available:
+Пример использования — https://github.com/junjun-it-courses/react-hw/blob/master/task-7/using.html
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Результат — https://github.com/junjun-it-courses/react-hw/blob/master/task-7/result.html
