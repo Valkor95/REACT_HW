@@ -1,8 +1,27 @@
 import React from "react";
 
 class Progress extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
     render() {
-        return <h1>Hello</h1>
+        const {percentage} = this.props;
+
+        return(
+            <div className="progress">
+                <div
+                    className="progress-bar"
+                    role="progressbar"
+                    aria-valuenow={percentage}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="progressbar"
+                    style={{width: `${percentage}%`}}
+                >
+                </div>
+            </div>
+        )
     }
 }
 

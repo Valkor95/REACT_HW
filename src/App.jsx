@@ -5,7 +5,11 @@ import React from "react";
 class App extends React.Component{
     render() {
         return (
-          <Progress />
+            <React.Fragment>
+                <h1>Progress Bar</h1>
+                <Progress percentage={40}/>
+            </React.Fragment>
+
         )
     }
 }
