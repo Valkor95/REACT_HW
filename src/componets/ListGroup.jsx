@@ -2,7 +2,17 @@ import React from "react";
 
 class ListGroup extends React.Component {
     render() {
-        return <h1>Hello</h1>
+        const {children} = this.props
+
+        return (
+            <ul className="list-group">
+                {React.Children.map(children, (child) => (
+                    <li className="list-group-item">
+                        {child}
+                    </li>
+                ))}
+            </ul>
+        )
     }
 }
 
