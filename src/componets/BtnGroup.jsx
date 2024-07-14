@@ -9,10 +9,42 @@ class BtnGroup extends React.Component {
         };
     }
 
+    handleLeftClick = () =>{
+        this.setState({
+            leftActive: true,
+            rightActive: false
+        });
+    };
 
+    handleRightClick = () =>{
+        this.setState({
+            leftActive: false,
+            rightActive: true
+        });
+    };
 
     render() {
-        return <h1>Hello</h1>
+        const {leftActive, rightActive} = this.state;
+
+        return (
+            <div className="btn-group" role="group">
+                <button
+                    type="button"
+                    className={`btn btn-secondary left ${leftActive ? 'active' : ''}`}
+                    onClick={this.handleLeftClick}
+                >
+                    LEFT
+                </button>
+
+                <button
+                    type="button"
+                    className={`btn btn-secondary right ${rightActive ? 'active' : ''}`}
+                    onClick={this.handleRightClick}
+                >
+                    RIGHT
+                </button>
+            </div>
+        )
     }
 }
 
