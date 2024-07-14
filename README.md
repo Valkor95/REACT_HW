@@ -1,8 +1,11 @@
-# React + Vite
+# HW 81. Alert.jsx
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Реализуйте компонент Alert, который отрисовывает алерт бутстрапа. Компонент принимает на вход два свойства:
 
-Currently, two official plugins are available:
+text — отображаемый текст
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+type — тип алерта, может принимать одно из следующих значений: primary, secondary, success, danger, warning, info, light, dark;
+
+Пример использования: https://github.com/junjun-it-courses/react-hw/blob/master/task-5/using.html
+
+Вывод: https://github.com/junjun-it-courses/react-hw/blob/master/task-5/using.html
