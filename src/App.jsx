@@ -1,17 +1,15 @@
-import Carousel from "./componets/Carousel.jsx";
-import React from "react";
-import firstImage from "./images/first.jpg"
-import secondImage from "./images/second.jpg"
-import thirdImage from "./images/third.jpg"
+import Carousel from './componets/Carousel.jsx';
+import firstImage from './images/first.jpg';
+import secondImage from './images/second.jpg';
+import thirdImage from './images/third.jpg';
 
-class App extends React.Component{
-    render() {
-        const images = [firstImage, secondImage, thirdImage]
-
-        return (
-          <Carousel images={images}/>
-        )
-    }
+function App() {
+    const image = [firstImage, secondImage, thirdImage];
+    return (
+        <div className="App">
+            <Carousel img={image} />
+        </div>
+    );
 }
 
-export default App
+export default App;

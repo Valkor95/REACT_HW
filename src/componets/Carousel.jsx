@@ -1,64 +1,77 @@
-import React from "react";
+import React from 'react';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 class Carousel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentIndex: 0,
-        }
+            index: 0,
+            imgLength: props.img.length,
+        };
     }
 
-    goToNext = () => {
+    handleNext = () => {
         this.setState((prevState) => ({
-            currentIndex: (prevState.currentIndex + 1) % this.props.images.length,
-        }))
+            index: (prevState.index + 1) % this.state.imgLength,
+        }));
     };
 
-    goToPrev = ()  => {
+    handlePrev = () => {
         this.setState((prevState) => ({
-            currentIndex: (prevState.currentIndex - 1 + this.props.images.length) % this.props.images.length,
-        }))
+            index: (prevState.index - 1 + this.props.img.length) % this.state.imgLength,
+        }));
     };
+
     render() {
-        const {images} = this.props;
-        const {currentIndex} = this.props;
+        const { index } = this.state;
+        const { img } = this.props;
 
         return (
             <div id="carousel" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
-                    {images.map((src, index) => (
+                    {img.map((img, i) => (
                         <div
-                            key={index}
-                            className={`carousel-item ${index === currentIndex ? 'active' : ''}`}
+                            key={i}
+                            className={classNames('carousel-item', { active: i === index })}
                         >
-                            <img alt="" className="d-block w-100" src={src}/>
+                            <img alt="" className="d-block w-100" src={img} />
                         </div>
                     ))}
                 </div>
                 <button
                     className="carousel-control-prev"
-                    data-bs-target="#carousel"
                     type="button"
-                    data-bs-slide="prev"
-                    onClick={this.goToPrev}
+                    onClick={this.handlePrev}
                 >
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+          ></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-
                 <button
                     className="carousel-control-next"
-                    data-bs-target="#carousel"
                     type="button"
-                    data-bs-slide="next"
-                    onClick={this.goToNext}
+                    onClick={this.handleNext}
                 >
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+          ></span>
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
-        )
+        );
     }
 }
 
-export default Carousel
+Carousel.propTypes = {
+    img: PropTypes.arrayOf(PropTypes.string),
+};
+
+Carousel.defaultProps = {
+    img: [],
+};
+
+export default Carousel;
