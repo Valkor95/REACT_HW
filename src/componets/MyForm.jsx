@@ -41,7 +41,8 @@ class MyForm extends React.Component {
     };
 
     render() {
-        return <h1>Hello</h1>
+        const {email, password, address, city, country, acceptRules, submitted, formData} = this.state;
+        const formFields = Object.keys(formData).sort();
     }
 }
 
