@@ -43,6 +43,32 @@ class MyForm extends React.Component {
     render() {
         const {email, password, address, city, country, acceptRules, submitted, formData} = this.state;
         const formFields = Object.keys(formData).sort();
+
+        if (submitted){
+            return(
+                <div>
+                    <button type="button" className="btn btn-primary" onClick={this.handleBack}>Back</button>
+                    <table className="table">
+                        <tbody>
+                        {formFields.map((field) => (
+                            <tr key={field}>
+                                <td>{field}</td>
+                                <td>{formData[field]}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
+
+        return (
+            <form name="myForm" onSubmit={this.handleSubmit}>
+                <div class="col-md-6 mb-3">
+                    <label for="email" class="col-form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                </div>
+        )
     }
 }
 
