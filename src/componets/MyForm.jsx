@@ -67,11 +67,25 @@ class MyForm extends React.Component {
                 <div className="col-md-6 mb-3">
                     <label htmlFor="email" className="col-form-label">Email</label>
                     <input type="email" name="email" className="form-control" id="email" placeholder="Email"
-                    value={email} onChange={this.handleChange}/>
+                           value={email} onChange={this.handleChange}/>
                 </div>
+                <div className="form-group col-md-6">
+                    <label htmlFor="password" className="col-form-label">Password</label>
+                    <input type="password" name="password" className="form-control" id="password"
+                           placeholder="Password" value={password} onChange={this.handleChange}/>
+                </div>
+                <div className="col-md-6 mb-3">
+                    <label htmlFor="address" className="col-form-label">Address</label>
+                    <textarea type="text" className="form-control" name="address" id="address"
+                              placeholder="1234 Main St" value={address} onChange={this.handleChange}/>
+                </div>
+                <div className="col-md-6 mb-3">
+                    <label htmlFor="city" className="col-form-label">City</label>
+                    <input type="text" className="form-control" name="city" id="city"
+                    value={city} onChange={this.handleChange}/>
+                </div>
+                )
+                }
+                }
 
-        )
-    }
-}
-
-export default MyForm
+                export default MyForm
