@@ -64,10 +64,12 @@ class MyForm extends React.Component {
 
         return (
             <form name="myForm" onSubmit={this.handleSubmit}>
-                <div class="col-md-6 mb-3">
-                    <label for="email" class="col-form-label">Email</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                <div className="col-md-6 mb-3">
+                    <label htmlFor="email" className="col-form-label">Email</label>
+                    <input type="email" name="email" className="form-control" id="email" placeholder="Email"
+                    value={email} onChange={this.handleChange}/>
                 </div>
+
         )
     }
 }
