@@ -103,7 +103,7 @@ class MyForm extends React.Component {
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" className="btn btn-primary">Sign in</button>
             </form>
         );
     }
