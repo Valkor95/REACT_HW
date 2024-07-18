@@ -1,11 +1,11 @@
-import Hello from "./componets/Hello.jsx";
+import Collapse from "./componets/Collapse.jsx";
 import React from "react";
 
 
 class App extends React.Component{
     render() {
         return (
-          <Hello />
+          <Collapse />
         )
     }
 }

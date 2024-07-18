@@ -1,8 +1,9 @@
-# React + Vite
+# HW 85. Collapse.jsx
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Реализуйте компонент <Collapse>, который по клику на ссылке отображает или скрывает свое содержимое. Если содержимое скрыто, то клик раскрывает его. И наоборот — если содержимое отображается, то клик скрывает контент. Содержимое передается в компонент через свойство text. За начальное состояние открытости, отвечает свойство opened, которое по умолчанию равно true.
 
-Currently, two official plugins are available:
+Использование — https://github.com/junjun-it-courses/react-hw/blob/master/task-9/using.jsx
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Рзультат — https://github.com/junjun-it-courses/react-hw/blob/master/task-9/layout.html
+
+После клика к классу collapse элемента <div> добавляется класс show, a значение атрибута aria-expanded меняется на true.
