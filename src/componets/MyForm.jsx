@@ -34,8 +34,11 @@ class MyForm extends React.Component {
             acceptRules: acceptRules.toString()
         };
         this.state({submitted: true, formData});
-    }
+    };
 
+    handleBack = () => {
+        this.setState({submitted: false});
+    };
 
     render() {
         return <h1>Hello</h1>
