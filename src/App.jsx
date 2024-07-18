@@ -7,7 +7,7 @@ function App() {
     const image = [firstImage, secondImage, thirdImage];
     return (
         <div className="App">
-            <Carousel img={image} />
+            <Carousel images={image} />
         </div>
     );
 }

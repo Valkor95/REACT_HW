@@ -1,48 +1,48 @@
 import React from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import cn from 'classnames';
+
 
 class Carousel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            index: 0,
-            imgLength: props.img.length,
+            currentIndex: 0,
+            totalImages: props.images.length,
         };
     }
 
-    handleNext = () => {
+    nextImage = () => {
         this.setState((prevState) => ({
-            index: (prevState.index + 1) % this.state.imgLength,
+            currentIndex: (prevState.currentIndex + 1) % this.state.totalImages,
         }));
     };
 
-    handlePrev = () => {
+    prevImage = () => {
         this.setState((prevState) => ({
-            index: (prevState.index - 1 + this.props.img.length) % this.state.imgLength,
+            currentIndex: (prevState.currentIndex - 1 + this.props.images.length) % this.state.totalImages,
         }));
     };
 
     render() {
-        const { index } = this.state;
-        const { img } = this.props;
+        const { currentIndex } = this.state;
+        const { images } = this.props;
 
         return (
             <div id="carousel" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
-                    {img.map((img, i) => (
+                    {images.map((image, index) => (
                         <div
-                            key={i}
-                            className={classNames('carousel-item', { active: i === index })}
+                            key={index}
+                            className={cn('carousel-item', { active: index === currentIndex })}
                         >
-                            <img alt="" className="d-block w-100" src={img} />
+                            <img alt="" className="d-block w-100" src={image} />
                         </div>
                     ))}
                 </div>
                 <button
                     className="carousel-control-prev"
                     type="button"
-                    onClick={this.handlePrev}
+                    onClick={this.prevImage}
                 >
           <span
               className="carousel-control-prev-icon"
@@ -53,7 +53,7 @@ class Carousel extends React.Component {
                 <button
                     className="carousel-control-next"
                     type="button"
-                    onClick={this.handleNext}
+                    onClick={this.nextImage}
                 >
           <span
               className="carousel-control-next-icon"
@@ -66,12 +66,5 @@ class Carousel extends React.Component {
     }
 }
 
-Carousel.propTypes = {
-    img: PropTypes.arrayOf(PropTypes.string),
-};
-
-Carousel.defaultProps = {
-    img: [],
-};
 
 export default Carousel;
