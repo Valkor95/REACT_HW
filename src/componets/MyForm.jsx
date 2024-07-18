@@ -25,7 +25,18 @@ class MyForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const {email, password, address, city, country, acceptRules} = this.state;
+        const formData = {
+            email,
+            password,
+            address,
+            city,
+            country,
+            acceptRules: acceptRules.toString()
+        };
+        this.state({submitted: true, formData});
     }
+
+
     render() {
         return <h1>Hello</h1>
     }
