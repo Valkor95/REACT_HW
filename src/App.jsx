@@ -3,9 +3,11 @@ import React from "react";
 
 
 class App extends React.Component{
+
     render() {
+        const text = 'collapse me'
         return (
-          <Collapse />
+          <Collapse text={text} opened={false}/>
         )
     }
 }
