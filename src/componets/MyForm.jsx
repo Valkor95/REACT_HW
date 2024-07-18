@@ -17,7 +17,7 @@ class MyForm extends React.Component {
 
     handleChange = (event) => {
         const {name, value, type, checked} = event.target;
-        this.state({
+        this.setState({
             [name]: type === 'checkbox' ? checked : value
         })
     }
@@ -33,7 +33,7 @@ class MyForm extends React.Component {
             country,
             acceptRules: acceptRules.toString()
         };
-        this.state({submitted: true, formData});
+        this.setState({submitted: true, formData});
     };
 
     handleBack = () => {
