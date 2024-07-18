@@ -82,10 +82,31 @@ class MyForm extends React.Component {
                 <div className="col-md-6 mb-3">
                     <label htmlFor="city" className="col-form-label">City</label>
                     <input type="text" className="form-control" name="city" id="city"
-                    value={city} onChange={this.handleChange}/>
+                           value={city} onChange={this.handleChange}/>
                 </div>
-                )
-                }
-                }
+                <div className="col-md-6 mb-3">
+                    <label htmlFor="country" className="col-form-label">Country</label>
+                    <select id="country" name="country" className="form-control" value={country}
+                            onChange={this.handleChange}>
+                        <option value="">Choose</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="russia">Russia</option>
+                        <option value="china">China</option>
+                    </select>
+                </div>
+                <div className="col-md-6 mb-3">
+                    <div className="form-check">
+                        <label className="form-check-label" htmlFor="rules">
+                            <input id="rules" type="checkbox" name="acceptRules" className="form-check-input"
+                            checked={acceptRules} onChange={this.handleChange}/>
+                            Accept Rules
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+        );
+    }
+}
 
-                export default MyForm
+export default MyForm
