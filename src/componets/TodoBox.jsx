@@ -10,6 +10,9 @@ class TodoBox extends React.Component {
             currentTask: ''
         };
 
+        this.handleChange =  this.handleChange.bind(this);
+        this.handleSubmit =  this.handleSubmit.bind(this);
+        this.handleRemove =  this.handleRemove.bind(this);
 
     }
 
@@ -24,12 +27,16 @@ class TodoBox extends React.Component {
 
         const newTask = {id: uniqueId(), text: currentTask};
         this.setState({
-            task: [newTask, ...task],
+            tasks: [newTask, ...task],
             currentTask: ''
         })
     }
 
-
+    handleRemove(id){
+        this.setState((prevState) => ({
+            tasks: prevState.tasks.filter((task) => task.id !== id)
+        }));
+    }
     render() {
         return <h1>Hello</h1>
     }
