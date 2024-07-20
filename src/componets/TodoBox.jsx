@@ -22,12 +22,12 @@ class TodoBox extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        const {task, currentTask} = this.state;
+        const {tasks, currentTask} = this.state;
         if (currentTask.trim() === '') return;
 
         const newTask = {id: uniqueId(), text: currentTask};
         this.setState({
-            tasks: [newTask, ...task],
+            tasks: [newTask, ...tasks],
             currentTask: ''
         })
     }
