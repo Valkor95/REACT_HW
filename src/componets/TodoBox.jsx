@@ -38,7 +38,36 @@ class TodoBox extends React.Component {
         }));
     }
     render() {
-        return <h1>Hello</h1>
+        const {tasks, currentTask} = this.state;
+
+        return (
+            <div>
+                <div className="mb-3">
+                    <form className="d-flex" onSubmit={this.handleSubmit}>
+                        <div className="me-3">
+                            <input
+                                type="text"
+                                value={currentTask}
+                                onChange={this.handleChange}
+                                required
+                                className="form-control"
+                                placeholder="Enter your text..."
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-primary">Add</button>
+                    </form>
+                </div>
+                <div>
+                    {tasks.map((task) => (
+                        <Item
+                          key={task.id}
+                          task={task}
+                          onRemove={() => this.handleRemove(task.id)}
+                        />
+                    ))}
+                </div>
+            </div>
+        );
     }
 }
 
