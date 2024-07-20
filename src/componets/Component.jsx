@@ -7,7 +7,11 @@ class Component extends React.Component {
         super(props);
         this.state = {
             log:[]
-        }
+        };
+
+        this.handleAdd = this.handleAdd.bind(this);
+        this.handleSubtract = this.handleSubtract.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
     }
 
     handleAdd = () => {
