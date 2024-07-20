@@ -7,9 +7,9 @@
 Правая кнопка - добавляет в лог строчку с новым значением равным: значение «самой новой существующей записи лога» — 1
 При клике на запись в логе она удаляется.
 
-Начальный HTML —  layout.html
+Начальный HTML —  https://github.com/junjun-it-courses/react-hw/blob/master/task-10.1/layout.html
 
-После нажатия последовательности +, +, -, +:  layout2.html
+После нажатия последовательности +, +, -, +:  https://github.com/junjun-it-courses/react-hw/blob/master/task-10.1/layout2.html
 
 
 
