@@ -1,6 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import Header from "./Child Components/Header.jsx";
+import Body from "./Child Components/Body.jsx";
 
 const Modal = ({isOpen, children}) => {
     const modalClass = cn('modal', {
