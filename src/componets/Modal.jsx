@@ -19,4 +19,8 @@ const Modal = ({isOpen, children}) => {
     );
 }
 
+Modal.Header = Header;
+Modal.Body = Body;
+Modal.Footer = Footer;
+
 export default Modal
