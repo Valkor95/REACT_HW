@@ -1,12 +1,10 @@
 import React from "react";
+import CardBody from "./Child Componets/CardBody.jsx";
 
 const Card = () => {
     return (
     <div className="card">
-        <div className="card-body">
-            <h4 className="card-title">Title</h4>
-            <p className="card-text">Text</p>
-        </div>
+        <CardBody title="Title" text="Text" />
     </div>
     )
 }
