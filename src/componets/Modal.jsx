@@ -1,9 +1,19 @@
 import React from "react";
+import cn from "classnames";
 
-class Modal extends React.Component {
-    render() {
-        return <h1>Hello</h1>
-    }
+const Modal = ({isOpen, children}) => {
+    const modalClass = cn('modal', {
+        'fade show': isOpen
+    });
+    return (
+        <div className={modalClass} style={{display: isOpen ? 'block' : 'none'}} role="dialog">
+            <div className='modal-dialog'>
+                <div className='modal-content'>
+                    {children}
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default Modal
