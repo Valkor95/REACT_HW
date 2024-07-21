@@ -16,7 +16,8 @@ class App extends React.Component{
           <div>
               <button type="button" className="modal-open-button btn btn-danger" onClick={this.toggle}>Open</button>
               <Modal isOpen={this.state.modal}>
-                  <Modal.Header/>
+                  <Modal.Header></Modal.Header>
+                  <Modal.Body/>
               </Modal>
           </div>
         )
