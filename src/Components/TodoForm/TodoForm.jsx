@@ -5,18 +5,41 @@ class TodoForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            formData: {
+                title: '',
+                description: '',
+            },
+            isLoading: false
         }
     }
+
+    handleChange = ({target}) => {
+        const formData = {
+            ...this.state.formData,
+            [target.name]: target.value
+        }
+
+        console.log(target.name, target.value)
+        this.setState({formData})
+    }
+
+    handleSubmit = () => {
+
+    }
     render() {
+        const {title, description} = this.state;
+
         return (
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
                 <Form.Group className="mb-3" controlId="todoItemTitle">
                     <Form.Label>Title</Form.Label>
                     <Form.Control
                         name='title'
                         type="text"
-                        placeholder="Enter todo item title" />
+                        placeholder="Enter todo item title"
+                        onChange={this.handleChange}
+                        value={title}
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="todoItemDescription">
@@ -25,7 +48,10 @@ class TodoForm extends Component {
                         name='description'
                         as='textarea'
                         type="text"
-                        placeholder="Enter todo item description" />
+                        placeholder="Enter todo item description"
+                        onChange={this.handleChange}
+                        value={description}
+                    />
                 </Form.Group>
                 <Button type='Submit'>Submit</Button>
             </Form>
