@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Form} from "react-bootstrap";
+import PropTypes from "prop-types";
 
 class TodoForm extends Component {
     constructor(props) {
@@ -19,7 +20,6 @@ class TodoForm extends Component {
             [target.name]: target.value
         }
 
-        console.log(target.name, target.value)
         this.setState({formData})
     }
 
