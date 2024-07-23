@@ -1,8 +1,16 @@
 import React, {Component} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
+import TodoForm from "../TodoForm";
+import TodoItem from "../TodoItem";
 import PropTypes from 'prop-types';
 
 class TodoList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        }
+    }
     render() {
         return (
             <div className="todo-list">
@@ -12,10 +20,10 @@ class TodoList extends Component {
                 <Container>
                     <Row>
                         <Col xs={6}>
-
+                            <TodoForm/>
                         </Col>
                         <Col xs={6}>
-
+                            <TodoItem/>
                         </Col>
                     </Row>
                 </Container>
