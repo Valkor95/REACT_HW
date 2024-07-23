@@ -2,6 +2,12 @@ import React, {Component} from 'react';
 import {Button, Form} from "react-bootstrap";
 
 class TodoForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        }
+    }
     render() {
         return (
             <Form>
