@@ -23,7 +23,16 @@ class TodoForm extends Component {
         this.setState({formData})
     }
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        for(const key in this.state.formData){
+            if(this.state.formData[key].trim() === ''){
+                return alert(`Empty ${key}`)
+            }
+        }
+
 
     }
     render() {
