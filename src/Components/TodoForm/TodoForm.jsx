@@ -33,6 +33,7 @@ class TodoForm extends Component {
             }
         }
 
+        this.props.onSubmit({...this.state.formData})
 
     }
     render() {
@@ -66,6 +67,10 @@ class TodoForm extends Component {
             </Form>
         );
     }
+}
+
+TodoForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired
 }
 
 export default TodoForm;

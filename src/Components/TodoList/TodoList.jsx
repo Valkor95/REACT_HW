@@ -11,6 +11,10 @@ class TodoList extends Component {
             data: []
         }
     }
+
+    handleSubmit = (data) => {
+        console.log(data)
+    }
     render() {
         return (
             <div className="todo-list">
@@ -20,7 +24,7 @@ class TodoList extends Component {
                 <Container>
                     <Row>
                         <Col xs={6}>
-                            <TodoForm/>
+                            <TodoForm onSubmit={this.handleSubmit}/>
                         </Col>
                         <Col xs={6}>
                             <TodoItem/>
