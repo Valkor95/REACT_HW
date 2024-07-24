@@ -12,8 +12,8 @@ class TodoList extends Component {
         }
     }
 
-    handleSubmit = (data) => {
-        console.log(data)
+    handleSubmit = (todoItem) => {
+        this.setState({data: [...this.state.data, todoItem]})
     }
     render() {
         return (
@@ -27,7 +27,15 @@ class TodoList extends Component {
                             <TodoForm onSubmit={this.handleSubmit}/>
                         </Col>
                         <Col xs={6}>
-                            <TodoItem/>
+                            <Row>
+                                {this.state.data.map(({title, description}) =>{
+                                    return (
+                                            <Col xs={4}>
+                                                <TodoItem title={title} body={description}/>
+                                            </Col>
+                                        )
+                                })}
+                            </Row>
                         </Col>
                     </Row>
                 </Container>
