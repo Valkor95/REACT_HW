@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Col, Container, Row} from "react-bootstrap";
 import TodoForm from "../TodoForm";
 import TodoItem from "../TodoItem";
-import PropTypes from 'prop-types';
 
 class TodoList extends Component {
     constructor(props) {
@@ -47,7 +46,5 @@ class TodoList extends Component {
         );
     }
 }
-
-TodoList.propTypes = {};
 
 export default TodoList;
