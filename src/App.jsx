@@ -25,9 +25,7 @@ class App extends React.Component{
         return (
           <PostCatalog
               className='p-5 m-5'
-              id={this.state.usersPosts.id}
-              title={this.state.usersPosts.title}
-              body={this.state.usersPosts.body}
+              data={this.state.usersPosts}
           />
         )
     }
