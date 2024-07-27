@@ -20,7 +20,7 @@ class PostCatalog extends React.Component {
                                     className={`posts_single-post ${styles.li}`}
                                     data-post-id={item.id}
                                 >
-                                    <h3 className='posts_post-title'>{item.title}</h3>
+                                    <h3 className='posts_post-title'>{item.id + ' | ' + item.title}</h3>
                                     <p className='posts_post-description'>{item.body}</p>
                                 </li>
                             )
