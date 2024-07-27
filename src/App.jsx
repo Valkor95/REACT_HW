@@ -1,4 +1,4 @@
-import PostCatalog from "./componets/PostCatalog.jsx";
+import PostCatalog from "./componets";
 import React from "react";
 
 
