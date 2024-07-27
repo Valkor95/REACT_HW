@@ -18,10 +18,9 @@ class PostCatalog extends React.Component {
                             <li
                                 className='posts_single-post'
                                 data-post-id={id}
-
                             >
                                 <h3 className='posts_post-title'>{title}</h3>
-
+                                <p className='posts_post-description'>{body}</p>
                             </li>
                         )
                     })}
