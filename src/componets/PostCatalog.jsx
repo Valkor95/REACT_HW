@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 class PostCatalog extends React.Component {
     constructor(props) {
         super(props);
-        const {data} = this.props
     }
 
     render() {
@@ -16,6 +15,7 @@ class PostCatalog extends React.Component {
                     {data.map(({id, title, body}) =>{
                         return (
                             <li
+                                key={id + '' + title[0]}
                                 className='posts_single-post'
                                 data-post-id={id}
                             >

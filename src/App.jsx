@@ -24,7 +24,7 @@ class App extends React.Component{
     render() {
         return (
           <PostCatalog
-              className='p-5 m-5'
+              className='PostCatalog'
               data={this.state.usersPosts}
           />
         )
