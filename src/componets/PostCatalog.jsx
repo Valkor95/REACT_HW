@@ -12,15 +12,15 @@ class PostCatalog extends React.Component {
         return (
             <div className='posts'>
                 <ul className='posts__list'>
-                    {data.map(({id, title, body}) =>{
+                    {data.map((item) =>{
                         return (
                             <li
-                                key={id + '' + title[0]}
+                                key={item.id + '|' + item.title[0]}
                                 className='posts_single-post'
-                                data-post-id={id}
+                                data-post-id={item.id}
                             >
-                                <h3 className='posts_post-title'>{title}</h3>
-                                <p className='posts_post-description'>{body}</p>
+                                <h3 className='posts_post-title'>{item.title}</h3>
+                                <p className='posts_post-description'>{item.body}</p>
                             </li>
                         )
                     })}
