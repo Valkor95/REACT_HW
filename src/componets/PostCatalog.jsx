@@ -1,9 +1,9 @@
 import React from "react";
 
-class Hello extends React.Component {
+class PostCatalog extends React.Component {
     render() {
         return <h1>Hello</h1>
     }
 }
 
-export default Hello
+export default PostCatalog
