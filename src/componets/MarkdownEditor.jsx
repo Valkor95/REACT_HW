@@ -10,14 +10,19 @@ const MarkdownEditor = ({onContentChange}) => {
         editorInstanceRef.current = new Editor({
             el: editorRef.current,
             hideModeSwitch: true,
-        })
+        });
 
         editorInstanceRef.current.addHook('change', () =>{
+            const content = editorInstanceRef.current.getMarkdown();
+            onContentChange(content);
+        });
 
-        })
-    }, []);
+        return () => {
+            editorInstanceRef.current.destroy();
+        };
+    }, [onContentChange]);
 
-        return <h1>Hello</h1>
+        return <div ref={editorRef}/>
 
 }
 
