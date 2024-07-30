@@ -8,7 +8,15 @@ const App = () => {
 
     const [usersPosts, setUsersPosts] = useState([]);
 
+    const fetchData = async () => {
+        const request = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const data = await request.json()
+        const filtredData = data.map(({id, title, body}) => {
+            console.log(filtredData)
+            return {id, title, body}
 
+        })
+    }
 
     return (
         <div>
