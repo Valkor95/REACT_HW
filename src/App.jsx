@@ -2,33 +2,44 @@ import PostCatalog from "./componets";
 import React from "react";
 
 
-class App extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            usersPosts: []
-        }
+import React from 'react';
 
-        this.fetchUsersPosts()
-    }
+const App = () => {
+    return (
+        <div>
 
-    async fetchUsersPosts() {
-        const request = await fetch('https://jsonplaceholder.typicode.com/posts');
-        const data = await request.json();
-        const filtredData = data.map(({id, title, body}) => {
-            return {id, title, body}
-        })
-        this.setState({usersPosts: filtredData})
-    }
+        </div>
+    );
+};
 
-    render() {
-        return (
-          <PostCatalog
-              className='PostCatalog'
-              data={this.state.usersPosts}
-          />
-        )
-    }
-}
+
+// class App extends React.Component{
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             usersPosts: []
+//         }
+//
+//         this.fetchUsersPosts()
+//     }
+//
+//     async fetchUsersPosts() {
+//         const request = await fetch('https://jsonplaceholder.typicode.com/posts');
+//         const data = await request.json();
+//         const filtredData = data.map(({id, title, body}) => {
+//             return {id, title, body}
+//         })
+//         this.setState({usersPosts: filtredData})
+//     }
+//
+//     render() {
+//         return (
+//           <PostCatalog
+//               className='PostCatalog'
+//               data={this.state.usersPosts}
+//           />
+//         )
+//     }
+// }
 
 export default App
