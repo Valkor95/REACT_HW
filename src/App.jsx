@@ -1,5 +1,6 @@
 import PostCatalog from "./componets";
 import React, {Component, useEffect, useState} from "react";
+import {fetchData} from "./componets";
 
 
 const App = () => {
@@ -10,7 +11,8 @@ const App = () => {
 
     useEffect(() => {
         (async () => {
-            await fetchData();
+            const fetchedData = await fetchData()
+            setUsersPosts(fetchedData);
         })();
     }, []);
 
