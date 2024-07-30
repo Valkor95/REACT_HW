@@ -1,8 +1,6 @@
 import PostCatalog from "./componets";
-import React, {useEffect, useState} from "react";
+import React, {Component, useEffect, useState} from "react";
 
-
-import React from 'react';
 
 const App = () => {
 

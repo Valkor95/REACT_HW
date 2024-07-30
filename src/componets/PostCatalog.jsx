@@ -3,6 +3,8 @@ import pt from 'prop-types'
 import PropTypes from "prop-types";
 import styles from './styles.module.scss'
 
+
+
 class PostCatalog extends React.Component {
     constructor(props) {
         super(props);
