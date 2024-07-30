@@ -10,31 +10,40 @@ const TodoForm = () => {
     }]);
     const [isLoading, setIsLoading] = useState('false')
 
+    const handleChange = ({target}) => {
+        const newFormData = {
+            ...formData,
+            [target.name]: target.value
+        }
+
+        setFormData(newFormData)
+    }
+
     return (
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="todoItemTitle">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                     name='title'
                     type="text"
                     placeholder="Enter todo item title"
-                    onChange={this.handleChange}
-                    value={title}
+                    onChange={handleChange}
+                    value={formData.title}
                 />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="todoItemDescription">
-                <Form.Label>Description</Form.Label>
-                <Form.Control
-                    name='description'
-                    as='textarea'
-                    type="text"
-                    placeholder="Enter todo item description"
-                    onChange={this.handleChange}
-                    value={description}
-                />
-            </Form.Group>
-            <Button type='Submit'>Submit</Button>
+            {/*<Form.Group className="mb-3" controlId="todoItemDescription">*/}
+            {/*    <Form.Label>Description</Form.Label>*/}
+            {/*    <Form.Control*/}
+            {/*        name='description'*/}
+            {/*        as='textarea'*/}
+            {/*        type="text"*/}
+            {/*        placeholder="Enter todo item description"*/}
+            {/*        onChange={handleChange}*/}
+            {/*        value={formData.description}*/}
+            {/*    />*/}
+            {/*</Form.Group>*/}
+            {/*<Button type='Submit'>Submit</Button>*/}
         </Form>
     );
 };
