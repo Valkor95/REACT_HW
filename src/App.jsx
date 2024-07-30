@@ -12,7 +12,6 @@ const App = () => {
         const filtredData = data.map(({id, title, body}) => {
             return {id, title, body}
         })
-        console.log(filtredData);
         setUsersPosts(filtredData)
     }
 
