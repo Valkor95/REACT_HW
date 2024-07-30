@@ -2,16 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Card} from "react-bootstrap";
 
-class TodoItem extends Component {
-    constructor(props) {
-        super(props);
-
-    }
-
-    render() {
-        const {title, body} = this.props
-
-        return (
+const TodoItem = ({title, body}) => {
+    return (
+        <div>
             <Card>
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
@@ -20,9 +13,9 @@ class TodoItem extends Component {
                     </Card.Text>
                 </Card.Body>
             </Card>
-        );
-    }
-}
+        </div>
+    );
+};
 
 TodoItem.propTypes = {
     title: PropTypes.string.isRequired,
