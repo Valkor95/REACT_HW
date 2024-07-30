@@ -39,8 +39,6 @@ const TodoForm = () => {
     );
 };
 
-export default TodoForm;
-
 // class TodoForm extends Component {
 //     constructor(props) {
 //         super(props);
