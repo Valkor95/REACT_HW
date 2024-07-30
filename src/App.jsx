@@ -1,5 +1,5 @@
 import PostCatalog from "./componets";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
 import React from 'react';
@@ -12,11 +12,17 @@ const App = () => {
         const request = await fetch('https://jsonplaceholder.typicode.com/posts');
         const data = await request.json()
         const filtredData = data.map(({id, title, body}) => {
-            console.log(filtredData)
             return {id, title, body}
-
         })
+        console.log(filtredData);
+        setUsersPosts(filtredData)
     }
+
+    useEffect(() => {
+        (async () => {
+            await fetchData();
+        })();
+    }, []);
 
     return (
         <div>
