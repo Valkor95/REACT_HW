@@ -25,9 +25,10 @@ const App = () => {
     }, []);
 
     return (
-        <div>
-
-        </div>
+        <PostCatalog
+              className='PostCatalog'
+              data={usersPosts}
+          />
     );
 };
 
