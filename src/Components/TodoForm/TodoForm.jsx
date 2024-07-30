@@ -11,9 +11,31 @@ const TodoForm = () => {
     const [isLoading, setIsLoading] = useState('false')
 
     return (
-        <div>
+        <Form onSubmit={this.handleSubmit}>
+            <Form.Group className="mb-3" controlId="todoItemTitle">
+                <Form.Label>Title</Form.Label>
+                <Form.Control
+                    name='title'
+                    type="text"
+                    placeholder="Enter todo item title"
+                    onChange={this.handleChange}
+                    value={title}
+                />
+            </Form.Group>
 
-        </div>
+            <Form.Group className="mb-3" controlId="todoItemDescription">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                    name='description'
+                    as='textarea'
+                    type="text"
+                    placeholder="Enter todo item description"
+                    onChange={this.handleChange}
+                    value={description}
+                />
+            </Form.Group>
+            <Button type='Submit'>Submit</Button>
+        </Form>
     );
 };
 
