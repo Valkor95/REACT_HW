@@ -12,6 +12,8 @@
 
 .li {
   margin-bottom: 40px;
+  border: 2px teal solid;
+  padding: 15px;
 }
 
 /*# sourceMappingURL=styles.module.css.map */
