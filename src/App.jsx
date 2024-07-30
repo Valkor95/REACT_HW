@@ -1,10 +1,15 @@
 import PostCatalog from "./componets";
-import React from "react";
+import React, {useState} from "react";
 
 
 import React from 'react';
 
 const App = () => {
+
+    const [usersPosts, setUsersPosts] = useState([]);
+
+
+
     return (
         <div>
 
