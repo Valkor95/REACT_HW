@@ -17,7 +17,7 @@ const TodoList = () => {
     };
 
     return (
-        <div>
+        <div className={styles.todoItem}>
             
         </div>
     );

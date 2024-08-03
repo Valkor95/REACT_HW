@@ -1,3 +1,7 @@
-
+todoItem {
+  padding: 30px;
+  margin: 30px;
+  display: flex;
+}
 
 /*# sourceMappingURL=TodoList.module.css.map */
