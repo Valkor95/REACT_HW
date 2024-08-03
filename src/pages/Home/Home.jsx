@@ -5,7 +5,8 @@ import TodoList from "../../componets/TodoList"
 const Home = () => {
     return (
         <div>
-            <h1>Todo List</h1>
+            <h1 style={{marginLeft: '60px', marginTop: '30px', textTransform: 'uppercase'}}
+            >Todo List</h1>
             <TodoForm/>
             <TodoList/>
         </div>
