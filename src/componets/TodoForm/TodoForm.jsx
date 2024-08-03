@@ -18,9 +18,17 @@ const TodoForm = () => {
     };
 
     return (
-        <div>
-            
-        </div>
+        <Formik
+            initialValues={{title: '', description: ''}}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+        >
+            {({errors, touched}) => (
+                <Form className={styles.form}>
+
+                </Form>
+            )}
+        </Formik>
     );
 };
 
