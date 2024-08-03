@@ -4,6 +4,11 @@ import * as Yup from 'yup'
 import {TextField, Button} from "@mui/material";
 import styles from '../../styles/TodoForm/TodoForm.module.scss'
 
+const validationSchema = Yup.object({
+    title: Yup.string().required('Required'),
+    description: Yup.string().required('Required')
+});
+
 const TodoForm = () => {
     return (
         <div>
