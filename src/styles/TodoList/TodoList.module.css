@@ -1,7 +1,9 @@
-todoList {
+.todoList {
   padding: 30px;
   margin: 30px;
   display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 /*# sourceMappingURL=TodoList.module.css.map */

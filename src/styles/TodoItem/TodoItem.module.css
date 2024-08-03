@@ -1,8 +1,11 @@
-todoItem {
+.todoItem {
   padding: 30px;
   margin: 30px;
   display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
   gap: 15px;
+  border: 2px teal solid;
 }
 
 /*# sourceMappingURL=TodoItem.module.css.map */
