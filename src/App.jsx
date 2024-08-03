@@ -3,12 +3,13 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
 
 
-class App extends React.Component{
-    render() {
-        return (
-          <Home />
-        )
-    }
-}
+const App = () => {
+    return (
+        <div>
 
-export default App
+        </div>
+    );
+};
+
+export default App;
+
