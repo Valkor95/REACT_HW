@@ -10,6 +10,13 @@ const validationSchema = Yup.object({
 });
 
 const TodoForm = () => {
+    const handleSubmit = (values, {resetForm}) => {
+        const todos = JSON.parse(localStorage.getItem('todos')) || [];
+        const newTodo = {...values, id: Date.now(), status: 'pending'};
+        localStorage.setItem('todos', JSON.stringify([...todos, newTodo]));
+        resetForm();
+    };
+
     return (
         <div>
             
