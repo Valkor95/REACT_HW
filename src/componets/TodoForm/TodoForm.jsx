@@ -26,16 +26,16 @@ const TodoForm = () => {
             {({errors, touched}) => (
                 <Form className={styles.form}>
                     <Field
-                        as={}
-                        name=""
-                        label=""
+                        as={TextField}
+                        name="title"
+                        label="Title"
                         error={touched.title && !!errors.title}
                         helperText={touched.title && errors.title}
                     />
                     <Field
-                        as={}
-                        name=""
-                        label=""
+                        as={TextField}
+                        name="description"
+                        label="Description"
                         error={touched.description && !!errors.description}
                         helperText={touched.description && errors.description}
                     />
