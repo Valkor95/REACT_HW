@@ -25,7 +25,20 @@ const TodoForm = () => {
         >
             {({errors, touched}) => (
                 <Form className={styles.form}>
-
+                    <Field
+                        as={}
+                        name=""
+                        label=""
+                        error={touched.title && !!errors.title}
+                        helperText={touched.title && errors.title}
+                    />
+                    <Field
+                        as={}
+                        name=""
+                        label=""
+                        error={touched.description && !!errors.description}
+                        helperText={touched.description && errors.description}
+                    />
                 </Form>
             )}
         </Formik>
