@@ -39,6 +39,9 @@ const TodoForm = () => {
                         error={touched.description && !!errors.description}
                         helperText={touched.description && errors.description}
                     />
+                    <Button type="submit" variant="contained" color="primary">
+                        Add Todo
+                    </Button>
                 </Form>
             )}
         </Formik>
