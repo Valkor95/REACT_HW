@@ -23,6 +23,18 @@ const TodoItemPage = () => {
         navigate('/');
     }
 
+    const handleSave = () => {
+        const todos = JSON.parse(localStorage.getItem('todos')) || [];
+        const updatedTodos = todos.map(t => t.id === todo.id ? todo : t);
+        localStorage.setItem('todos', JSON.stringify(updatedTodos));
+        setEditMode(false);
+        alert('Todo item updated successfully');
+    };
+
+    if (!todo){
+        return <div>Todo item not found</div>
+    }
+
     return (
         <div>
 
