@@ -14,7 +14,14 @@ const TodoItemPage = () => {
         const currentTodo = todos.find(t => t.id === Number(id));
         if (currentTodo) setTodo(currentTodo);
 
-    }, []);
+    }, [id]);
+
+    const handleDelete = () => {
+        const todos = JSON.parse(localStorage.getItem('todos')) || [];
+        const updatedTodos = todos.filter(t => t.id !== Number(id));
+        localStorage.setItem('todos', JSON.stringify(updatedTodos));
+        navigate('/');
+    }
 
     return (
         <div>
