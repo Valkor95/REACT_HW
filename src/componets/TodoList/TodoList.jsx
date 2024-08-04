@@ -17,6 +17,12 @@ const TodoList = () => {
       setTodos(updatedTodos);
     };
 
+    const handleStatusChange = (id, status) => {
+        const updatedTodos = todos.map(todo => todo.id === id ? {...todo, status} : todo);
+        localStorage.setItem('todos', JSON.stringify(updatedTodos));
+        setTodos(updatedTodos);
+    }
+
     return (
         <div className={styles.todoList}>
             {todos.map(todo => (
@@ -25,13 +31,7 @@ const TodoList = () => {
                     <p>{todo.description}</p>
                     <select
                         value={todo.status}
-                        onChange={(e) => {
-                            const updatedTodos = todos.map(t =>
-                                t.id === todo.id ? {...t, status: e.target.value} : t
-                            );
-                            localStorage.setItem('todos', JSON.stringify(updatedTodos));
-                            setTodos(updatedTodos);
-                        }}
+                        onChange={(e) => handleStatusChange(todo.id, e.target.value)}
                     >
                         <option value="pending">Pending</option>
                         <option value="completed">Completed</option>
