@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams, useNavigate, Link} from "react-router-dom";
 import {TextField, Button, Select, MenuItem} from "@mui/material";
 import styles from '../../styles/TodoItem/TodoItem.module.scss'
 
@@ -67,6 +67,9 @@ const TodoItemPage = () => {
                     <p>Status: {todo.status}</p>
                     <Button onClick={() => setEditMode(true)}>Edit</Button>
                     <Button onClick={handleDelete}>Delete</Button>
+                    <Link style={{display: 'flex', justifyContent: 'center'}} to="/">
+                        <Button variant='contained' color='primary'>Back</Button>
+                    </Link>
                 </React.Fragment>
             )}
         </div>
