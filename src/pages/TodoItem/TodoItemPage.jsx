@@ -36,8 +36,16 @@ const TodoItemPage = () => {
     }
 
     return (
-        <div>
-
+        <div className={styles.todoItem}>
+            {editMode ? (
+                <React.Fragment>
+                    <TextField
+                        label='Title'
+                        value={todo.title}
+                        onChange={(e) => setTodo({...todo, title: e.target.value})}
+                    />
+                </React.Fragment>
+            )}
         </div>
     );
 };
