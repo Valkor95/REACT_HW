@@ -60,6 +60,14 @@ const TodoItemPage = () => {
                     <Button onClick={handleSave}>Save</Button>
                     <Button onClick={() => setEditMode(false)}>Cancel</Button>
                 </React.Fragment>
+            ) : (
+                <React.Fragment>
+                    <h3>{todo.title}</h3>
+                    <p>{todo.description}</p>
+                    <p>Status: {todo.status}</p>
+                    <Button onClick={() => setEditMode(true)}>Edit</Button>
+                    <Button onClick={handleDelete}>Delete</Button>
+                </React.Fragment>
             )}
         </div>
     );
