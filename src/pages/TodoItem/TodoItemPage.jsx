@@ -44,6 +44,21 @@ const TodoItemPage = () => {
                         value={todo.title}
                         onChange={(e) => setTodo({...todo, title: e.target.value})}
                     />
+                    <TextField
+                        label='Description'
+                        value={todo.description}
+                        onChange={(e) => setTodo({...todo, description: e.target.value})}
+                    />
+                    <Select
+                        value={todo.status}
+                        onChange={(e) => setTodo({...todo, status:e.target.value})}
+                    >
+                        <MenuItem value="pending">Pending</MenuItem>
+                        <MenuItem value="completed">Completed</MenuItem>
+                        <MenuItem value="not-completed">Not-completed</MenuItem>
+                    </Select>
+                    <Button onClick={handleSave}>Save</Button>
+                    <Button onClick={() => setEditMode(false)}>Cancel</Button>
                 </React.Fragment>
             )}
         </div>
