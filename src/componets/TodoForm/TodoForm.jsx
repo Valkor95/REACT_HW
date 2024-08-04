@@ -3,18 +3,20 @@ import {Formik, Form, Field} from "formik";
 import * as Yup from 'yup'
 import {TextField, Button} from "@mui/material";
 import styles from '../../styles/TodoForm/TodoForm.module.scss'
+import PropTypes from "prop-types";
 
 const validationSchema = Yup.object({
     title: Yup.string().required('Required'),
     description: Yup.string().required('Required')
 });
 
-const TodoForm = () => {
+const TodoForm = ({onAddTodo}) => {
     const handleSubmit = (values, {resetForm}) => {
         const todos = JSON.parse(localStorage.getItem('todos')) || [];
         const newTodo = {...values, id: Date.now(), status: 'pending'};
         localStorage.setItem('todos', JSON.stringify([...todos, newTodo]));
         resetForm();
+        onAddTodo();
     };
 
     return (
@@ -47,5 +49,9 @@ const TodoForm = () => {
         </Formik>
     );
 };
+
+TodoForm.propTypes = {
+    onAddTodo: PropTypes.func.isRequired,
+}
 
 export default TodoForm;
