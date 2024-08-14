@@ -1,8 +1,12 @@
-# React + Vite
+# HW 96. Реалізація Телефонної Книги з Використанням Redux
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Створи простий додаток, який дозволяє додавати, видаляти, редагувати та переглядати контакти. Стан додатка повинен зберігатися та управлятися за допомогою Redux. Без використання асинхронних дій, всі операції повинні бути синхронними CRUD (Create, Read, Update, Delete).
 
-Currently, two official plugins are available:
+Стек
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. React
+2. react-router
+3. redux
+4. mui
+5. prop-types
+6. classnames
