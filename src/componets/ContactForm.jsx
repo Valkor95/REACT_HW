@@ -21,6 +21,13 @@ const ContactForm = () => {
         }
     }, [id, contacts]);
 
+    const handleChange = (e) => {
+        setContact({
+            ...contact,
+            [e.target.name]: e.target.value
+        });
+    };
+
     return (
         <div>
 
