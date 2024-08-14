@@ -39,9 +39,27 @@ const ContactForm = () => {
     }
 
     return (
-        <div>
-
-        </div>
+       <form>
+           <TextField
+                label='Email'
+                name='email'
+                value={contact.email}
+                onChange={handleChange}
+                fullWidth
+                margin='normal'
+           />
+           <TextField
+                label='Name'
+                name='name'
+                value={contact.name}
+                onChange={handleChange}
+                fullWidth
+                margin='normal'
+           />
+            <Button variant='contained' color='primary' type='submit'>
+                {id ? 'Update Contact' : 'Add Contact'}
+            </Button>
+       </form>
     );
 };
 
