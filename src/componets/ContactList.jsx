@@ -9,11 +9,17 @@ import cn from 'classnames';
 
 const ContactList = () => {
     const contacts = useSelector((state) => state.contacts.contacts);
+    const dispatch = useDispatch();
 
     return (
-        <div>
+        <List>
+            {contacts.map((contact) => (
+                <ListItem key={contact.id} className={cn('contact-item')}>
+                    <ListItemText primary={contact.name} secondary={contact.email}/>
 
-        </div>
+                </ListItem>
+            ))}
+        </List>
     );
 };
 
