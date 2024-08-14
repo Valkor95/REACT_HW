@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {addContact, updateContact} from "../store/slices/contact.js";
+import {addContact, updateContact} from "../store/slices/contacts.js";
 import {useNavigate, useParams} from "react-router-dom";
 import {TextField, Button} from "@mui/material";
 
@@ -38,7 +38,7 @@ const ContactForm = () => {
     }
 
     return (
-       <form>
+       <form onSubmit={handleSubmit}>
            <TextField
                 label='Email'
                 name='email'

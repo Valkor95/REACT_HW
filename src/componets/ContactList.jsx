@@ -1,9 +1,10 @@
 import React from "react";
 import {useSelector, useDispatch} from "react-redux";
-import {deleteContact} from "../store/slices/contact.js";
+import {deleteContact} from "../store/slices/contacts.js";
 import {Link} from "react-router-dom";
-import {Button, List, ListItem, ListItemText} from "@mui/material";
+import {Button, List, ListItem, ListItemText, Typography} from "@mui/material";
 import cn from 'classnames';
+import ContactForm from "./ContactForm.jsx";
 
 
 const ContactList = () => {
@@ -11,6 +12,13 @@ const ContactList = () => {
     const dispatch = useDispatch();
 
     return (
+        <div>
+            <ContactForm />
+            {contacts.length === 0 ? (
+                <Typography variant="h6" gutterBottom>
+                    Контактов нет. Добавьте новый контакт.
+                </Typography>
+        ):(
         <List>
             {contacts.map((contact) => (
                 <ListItem key={contact.id} className={cn('contact-item')}>
@@ -28,6 +36,8 @@ const ContactList = () => {
                 </ListItem>
             ))}
         </List>
+        )}
+      </div>
     );
 };
 
