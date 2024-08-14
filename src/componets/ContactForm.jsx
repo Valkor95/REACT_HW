@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {addContact, updateContact} from "../store/slices/contact.js";
 import {useNavigate, useParams} from "react-router-dom";
 import {TextField, Button} from "@mui/material";
-import PropTypes from "prop-types";
 
 const ContactForm = () => {
     const [contact, setContact] = useState({name: '', email: ''});
