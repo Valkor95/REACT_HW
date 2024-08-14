@@ -1,9 +1,8 @@
-import ContactList from "./componets/ContactList.jsx";
-import ContactForm from "./componets/ContactForm.jsx";
 import React from "react";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {Container} from "@mui/material";
-
+import ContactList from "./componets/ContactList.jsx";
+import ContactForm from "./componets/ContactForm.jsx";
 
 const App = () => {
     return (
