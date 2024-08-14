@@ -28,6 +28,16 @@ const ContactForm = () => {
         });
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (id){
+            dispatch(updateContact(contact));
+        } else {
+            dispatch(addContact({...contact, id:Date.now()}));
+        }
+        navigate('/')
+    }
+
     return (
         <div>
 
