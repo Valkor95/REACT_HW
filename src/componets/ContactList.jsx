@@ -32,8 +32,4 @@ const ContactList = () => {
     );
 };
 
-ContactList.propTypes = {
-    contacts: PropTypes.array.isRequired,
-}
-
 export default ContactList;
