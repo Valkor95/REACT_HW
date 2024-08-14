@@ -16,7 +16,16 @@ const ContactList = () => {
             {contacts.map((contact) => (
                 <ListItem key={contact.id} className={cn('contact-item')}>
                     <ListItemText primary={contact.name} secondary={contact.email}/>
-
+                    <Link to={`/edit/${contact.id}`}>
+                        <Button variant>Edit</Button>
+                    </Link>
+                    <Button
+                        variant='contained'
+                        color='secondary'
+                        onClick={() => dispatch(deleteContact(contact.id))}
+                    >
+                        Delete
+                    </Button>
                 </ListItem>
             ))}
         </List>
