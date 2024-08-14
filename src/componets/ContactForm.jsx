@@ -63,4 +63,8 @@ const ContactForm = () => {
     );
 };
 
+ContactForm.propTypes = {
+    contacts: PropTypes.array.isRequired,
+}
+
 export default ContactForm;
