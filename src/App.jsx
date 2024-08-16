@@ -9,9 +9,16 @@ const formDefaultState = {
 const App = () => {
     const {data, isLoading} = useGetPostsQuery()
 
+    if(isLoading){
+        return <h1>Loading...</h1>
+    }
+
+    if(!data){
+        return <h1>No data available</h1>
+    }
     return (
         <div>
-            {data.map(post => (
+            {data && data.map(post => (
                 <li key={post.id || post.title}>
                     <ListData title={post.title} body={post.body}/>
                 </li>

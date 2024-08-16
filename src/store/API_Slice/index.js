@@ -7,13 +7,12 @@ export const postsAPI = createApi({
         baseUrl: API_MAIN_URL
     }),
 
-    endpoints(build) {
+    endpoints: (build) => ({
         getPosts: build.query({
             query: (arg) => `posts`
         })
-
-
-    }
+    })
 });
 
 export const {useGetPostsQuery} = postsAPI
+
