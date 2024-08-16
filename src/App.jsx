@@ -21,9 +21,9 @@ const App = () => {
     return (
         <div>
             {data && data.map(post => (
-                <li key={post.id || post.title}>
-                    <ListData title={post.title} body={post.body}/>
-                </li>
+
+                    <ListData key={post.id} title={post.title} body={post.body}/>
+
             ))}
         </div>
 
