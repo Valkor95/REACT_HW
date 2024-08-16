@@ -1,7 +1,7 @@
 import ListData from "./componets/ListData.jsx";
 import React from "react";
 import {useGetPostsQuery} from "./store/API_Slice/index.js";
-import {CircularProgress} from "@mui/material";
+import {Button, CircularProgress} from "@mui/material";
 import {centredStyle} from "./style/index.js";
 
 const formDefaultState = {
@@ -9,7 +9,7 @@ const formDefaultState = {
     body: '',
 }
 const App = () => {
-    const {data, isLoading} = useGetPostsQuery()
+    const {data, isLoading, refetch } = useGetPostsQuery()
 
     if(isLoading){
         return <CircularProgress sx={centredStyle}/>
@@ -20,10 +20,21 @@ const App = () => {
     }
     return (
         <div>
+            {!data && (
+                <Button
+                    sx={centredStyle}
+                    onClick={() => refetch()}
+                >
+                    Refetch Data
+                </Button>
+            )}
+
             {data && data.map(post => (
-
-                    <ListData key={post.id} title={post.title} body={post.body}/>
-
+                    <ListData
+                        key={post.id || post.title}
+                        title={post.title}
+                        body={post.body}
+                    />
             ))}
         </div>
 
