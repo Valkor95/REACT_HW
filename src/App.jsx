@@ -1,6 +1,8 @@
 import ListData from "./componets/ListData.jsx";
 import React from "react";
 import {useGetPostsQuery} from "./store/API_Slice/index.js";
+import {CircularProgress} from "@mui/material";
+import {centredStyle} from "./style/index.js";
 
 const formDefaultState = {
     title: '',
@@ -10,7 +12,7 @@ const App = () => {
     const {data, isLoading} = useGetPostsQuery()
 
     if(isLoading){
-        return <h1>Loading...</h1>
+        return <CircularProgress sx={centredStyle}/>
     }
 
     if(!data){
