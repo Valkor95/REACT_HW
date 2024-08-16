@@ -14,4 +14,6 @@ export const postsAPI = createApi({
 
 
     }
-})
+});
+
+export const {useGetPostsQuery} = postsAPI
