@@ -1,13 +1,24 @@
 import ListData from "./componets/ListData.jsx";
 import React from "react";
+import {useGetPostsQuery} from "./store/API_Slice/index.js";
 
-
-class App extends React.Component{
-    render() {
-        return (
-          <ListData />
-        )
-    }
+const formDefaultState = {
+    title: '',
+    body: '',
 }
+const App = () => {
+    const {data, isLoading} = useGetPostsQuery()
 
-export default App
+    return (
+        <div>
+            {data.map(post => (
+                <li key={post.id || post.title}>
+                    <ListData title={post.title} body={post.body}/>
+                </li>
+            ))}
+        </div>
+
+    );
+};
+
+export default App;

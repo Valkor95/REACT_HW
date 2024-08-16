@@ -1,9 +1,13 @@
 import React from "react";
 
-class ListData extends React.Component {
-    render() {
-        return <h1>Hello</h1>
-    }
-}
+const ListData = ({title, body}) => {
+    return (
+        <div>
+            <h1>{title}</h1>
+            <p>{body}</p>
+            <hr/>
+        </div>
+    );
+};
 
-export default ListData
+export default ListData;
