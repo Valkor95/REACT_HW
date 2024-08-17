@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useFormik } from 'formik';
-import {Button, FormControl, Input, InputLabel, Stack, TextField} from "@mui/material";
+import {Alert, Button, FormControl, Input, InputLabel, Stack, TextField} from "@mui/material";
 import {centredStyle, centredStyleFlex} from "../style/index.js";
 import {useAddPostMutation} from "../store/API_Slice/index.js";
 
+
 const DataForm = () => {
-    const [addPost, {isLoading}] = useAddPostMutation()
+    const [showAlert, setShowAlert] = useState(false);
+    const [addPost, {isLoading, isSuccess, isError}] = useAddPostMutation()
     const formik = useFormik({
         initialValues:{
             title: '',
@@ -19,7 +21,17 @@ const DataForm = () => {
                 alert( `'Attention!', ${e.message}`)
             }
         }
-    })
+    });
+
+    useEffect(() => {
+        if (isSuccess || isError){
+            setShowAlert(true);
+            const timer = setTimeout(() => {
+             setShowAlert(false)
+            }, 2000)
+        }
+
+    }, [isSuccess, isError]);
 
     return (
         <div>
@@ -54,6 +66,13 @@ const DataForm = () => {
                 <Button variant='outlined' type='submit' disabled={isLoading}>
                     {isLoading ? 'Submitting...' : 'Submit'}
                 </Button>
+
+
+                {showAlert && <Alert sx={{marginTop: '20px'}} severity={isSuccess ? 'success' : 'error'}>
+                    {isSuccess ? 'POST is success!' : isError ? 'There is error!' : null}
+                </Alert>}
+
+
             </form>
 
         </div>
