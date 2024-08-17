@@ -2,16 +2,22 @@ import React from 'react';
 import { useFormik } from 'formik';
 import {Button, FormControl, Input, InputLabel, Stack, TextField} from "@mui/material";
 import {centredStyle, centredStyleFlex} from "../style/index.js";
-
+import {useAddPostMutation} from "../store/API_Slice/index.js";
 
 const DataForm = () => {
+    const [addPost, {isLoading}] = useAddPostMutation()
     const formik = useFormik({
         initialValues:{
             title: '',
             body: '',
         },
-        onSubmit: values => {
-            console.log(values)
+        onSubmit: async (values) => {
+            try {
+                await addPost(values).unwrap()
+                formik.resetForm();
+            }catch (e){
+                alert( `'Attention!', ${e.message}`)
+            }
         }
     })
 
