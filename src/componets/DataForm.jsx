@@ -23,11 +23,10 @@ const DataForm = () => {
 
     return (
         <div>
-
             <form style={centredStyleFlex} onSubmit={formik.handleSubmit}>
                 <Stack mb={4}>
                     <FormControl>
-                        <InputLabel htmlFor="firstName">Title</InputLabel>
+                        <InputLabel htmlFor="Title">Title</InputLabel>
                         <Input
                             id="title"
                             name="title"
@@ -36,7 +35,6 @@ const DataForm = () => {
                             value={formik.values.title}
                         />
                     </FormControl>
-
                 </Stack>
                 <Stack mb={4}>
                     <FormControl>
@@ -53,7 +51,7 @@ const DataForm = () => {
                     </FormControl>
                 </Stack>
 
-                <Button variant='outlined' type='submit'>Submit</Button>
+                <Button variant='outlined' type='submit' disabled={isLoading}>Submit</Button>
             </form>
 
         </div>
