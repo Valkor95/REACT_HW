@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import {FormControl, Input, InputLabel, Stack, TextField} from "@mui/material";
+import {Button, FormControl, Input, InputLabel, Stack, TextField} from "@mui/material";
 import {centredStyle, centredStyleFlex} from "../style/index.js";
 const DataForm = () => {
     const formik = useFormik({
@@ -43,6 +43,8 @@ const DataForm = () => {
                         />
                     </FormControl>
                 </Stack>
+
+                <Button variant='outlined'>Submit</Button>
             </form>
 
         </div>
