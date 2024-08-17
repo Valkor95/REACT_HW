@@ -41,11 +41,12 @@ const DataForm = () => {
                             label="body"
                             onChange={formik.handleChange}
                             value={formik.values.body}
+                            rows={4}
                         />
                     </FormControl>
                 </Stack>
 
-                <Button variant='outlined'>Submit</Button>
+                <Button variant='outlined' type='submit'>Submit</Button>
             </form>
 
         </div>
