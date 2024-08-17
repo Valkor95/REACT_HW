@@ -51,7 +51,9 @@ const DataForm = () => {
                     </FormControl>
                 </Stack>
 
-                <Button variant='outlined' type='submit' disabled={isLoading}>Submit</Button>
+                <Button variant='outlined' type='submit' disabled={isLoading}>
+                    {isLoading ? 'Submitting...' : 'Submit'}
+                </Button>
             </form>
 
         </div>
