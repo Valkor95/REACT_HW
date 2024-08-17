@@ -1,8 +1,9 @@
 import ListData from "./componets/ListData.jsx";
 import React from "react";
 import {useGetPostsQuery} from "./store/API_Slice/index.js";
-import {Button, CircularProgress} from "@mui/material";
+import {Button, CircularProgress, Stack} from "@mui/material";
 import {centredStyle} from "./style/index.js";
+import DataForm from "./componets/DataForm.jsx";
 
 const formDefaultState = {
     title: '',
@@ -28,14 +29,16 @@ const App = () => {
                     Refetch Data
                 </Button>
             )}
-
-            {data && data.map(post => (
-                    <ListData
-                        key={post.id || post.title}
-                        title={post.title}
-                        body={post.body}
-                    />
-            ))}
+            <Stack spacing={3}>
+                <DataForm/>
+                {data && data.map(post => (
+                        <ListData
+                            key={post.id || post.title}
+                            title={post.title}
+                            body={post.body}
+                        />
+                ))}
+            </Stack>
         </div>
 
     );

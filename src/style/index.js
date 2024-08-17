@@ -5,3 +5,11 @@ export const centredStyle = {
     transform: 'translate(-50%, -50%)'
 }
 
+export const centredStyleFlex = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '30px auto 0'
+}
+
