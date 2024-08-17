@@ -1,16 +1,22 @@
 import ListData from "./componets/ListData.jsx";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useGetPostsQuery} from "./store/API_Slice/index.js";
 import {Button, CircularProgress, Stack} from "@mui/material";
 import {centredStyle} from "./style/index.js";
 import DataForm from "./componets/DataForm.jsx";
 
-const formDefaultState = {
-    title: '',
-    body: '',
-}
+
 const App = () => {
     const {data, isLoading, refetch } = useGetPostsQuery()
+
+    useEffect(() => {
+        if (!isLoading && data){
+            setDataArr(data)
+        }
+    }, [data, isLoading]);
+
+
+    const [dataArr, setDataArr] = useState([])
 
     if(isLoading){
         return <CircularProgress sx={centredStyle}/>
@@ -19,6 +25,8 @@ const App = () => {
     if(!data){
         return <h1>No data available</h1>
     }
+
+
     return (
         <div>
             {!data && (
@@ -31,7 +39,7 @@ const App = () => {
             )}
             <Stack spacing={3}>
                 <DataForm/>
-                {data && data.map(post => (
+                {data && dataArr.map(post => (
                         <ListData
                             key={post.id || post.title}
                             title={post.title}
