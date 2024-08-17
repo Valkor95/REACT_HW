@@ -36,6 +36,7 @@ const App = () => {
                             key={post.id || post.title}
                             title={post.title}
                             body={post.body}
+                            id={post.id}
                         />
                 ))}
             </Stack>
