@@ -26,6 +26,9 @@ const App = () => {
         return <h1>No data available</h1>
     }
 
+    const handleSetForm = (newPost) => {
+        setDataArr(dataArr => [...dataArr, newPost])
+    }
 
     return (
         <div>
@@ -38,10 +41,10 @@ const App = () => {
                 </Button>
             )}
             <Stack spacing={3}>
-                <DataForm/>
-                {data && dataArr.map(post => (
+                <DataForm addPosts={handleSetForm}/>
+                {dataArr && dataArr.map(post => (
                         <ListData
-                            key={post.id || post.title}
+                            key={post.id + post.title}
                             title={post.title}
                             body={post.body}
                             id={post.id}

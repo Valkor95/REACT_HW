@@ -5,7 +5,7 @@ import {centredStyle, centredStyleFlex} from "../style/index.js";
 import {useAddPostMutation} from "../store/API_Slice/index.js";
 
 
-const DataForm = () => {
+const DataForm = ({addPosts}) => {
     const [showAlert, setShowAlert] = useState(false);
     const [addPost, {isLoading, isSuccess, isError}] = useAddPostMutation()
     const formik = useFormik({
@@ -15,8 +15,9 @@ const DataForm = () => {
         },
         onSubmit: async (values) => {
             try {
-                await addPost(values).unwrap()
+                const newPost = await addPost(values).unwrap()
                 formik.resetForm();
+                addPosts(newPost)
             }catch (e){
                 alert( `'Attention!', ${e.message}`)
             }
