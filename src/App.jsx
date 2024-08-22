@@ -1,47 +1,22 @@
-import ListData from "./componets/ListData.jsx";
-import React, {useEffect, useState} from "react";
-import {useGetPostsQuery} from "./store/API_Slice/index.js";
-import {Button, CircularProgress, Stack} from "@mui/material";
-import {centredStyle} from "./style/index.js";
-import DataForm from "./componets/DataForm.jsx";
-
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PostsList from './componets/PostsList.jsx';
+import AddPostForm from './componets/AddPostForm.jsx';
+import EditPostForm from './componets/EditPostForm.jsx';
+import { Container } from '@mui/material';
 
 const App = () => {
-    const {data, isLoading, refetch } = useGetPostsQuery()
-
-    if(isLoading){
-        return <CircularProgress sx={centredStyle}/>
-    }
-
-    if(!data){
-        return <h1>No data available</h1>
-    }
-
     return (
-        <div>
-            {!data && (
-                <Button
-                    sx={centredStyle}
-                    onClick={() => refetch()}
-                >
-                    Refetch Data
-                </Button>
-            )}
-            <Stack spacing={3}>
-                <DataForm />
-                {data && data.map(post => (
-                        <ListData
-                            key={post.id + post.title}
-                            title={post.title}
-                            body={post.body}
-                            id={post.id}
-                        />
-                ))}
-            </Stack>
-        </div>
-
+        <Router>
+            <Container>
+                <Routes>
+                    <Route path="/" element={<PostsList />} />
+                    <Route path="/add" element={<AddPostForm />} />
+                    <Route path="/edit/:id" element={<EditPostForm />} />
+                </Routes>
+            </Container>
+        </Router>
     );
 };
-
 
 export default App;
