@@ -9,17 +9,30 @@ export const postsAPI = createApi({
 
     endpoints: (build) => ({
         getPosts: build.query({
-            query: (arg) => `posts`
+            query: (arg) => `/posts`
         }),
         addPost: build.mutation({
-            query:(body) => ({
-                url: 'posts',
+            query:(newPost) => ({
+                url: '/posts',
                 method: 'POST',
-                body
+                body: newPost,
+            }),
+        }),
+        updatePost: build.mutation({
+            query: ({id, ...updatedPost}) => ({
+                url: `/posts/${id}`,
+                method: 'PUT',
+                body: updatedPost,
+            }),
+        }),
+        deletePost: build.mutation({
+            query: (id) => ({
+                url: `/posts/${id}`,
+                method: 'DElETE'
             })
         })
     })
 });
 
-export const {useGetPostsQuery, useAddPostMutation} = postsAPI
+export const {useGetPostsQuery, useAddPostMutation, useUpdatePostMutation, useDeletePostMutation} = postsAPI
 
