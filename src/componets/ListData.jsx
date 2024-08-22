@@ -3,6 +3,12 @@ import {Accordion, AccordionActions, AccordionDetails, AccordionSummary, Box, Bu
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const ListData = ({title, body, id}) => {
+    const [deletePost] = useDeletePostMutation();
+
+    const handleDelete = async (id) => {
+        await deletePost(id);
+    }
+
     return (
         <div>
             <Box component="section" sx={{margin: '0 50px', p: 2, border: '1px solid grey'}}>
@@ -19,7 +25,7 @@ const ListData = ({title, body, id}) => {
                     </AccordionDetails>
                     <AccordionActions>
                         <Button>Update</Button>
-                        <Button>Cancel</Button>
+                        <Button onClick={() => handleDelete(id)}>Cancel</Button>
                     </AccordionActions>
                 </Accordion>
             </Box>
