@@ -1,13 +1,11 @@
-import Hello from "./componets/Hello.jsx";
 import React from "react";
 
+const App = () => {
+    return (
+        <div>
+            
+        </div>
+    );
+};
 
-class App extends React.Component{
-    render() {
-        return (
-          <Hello />
-        )
-    }
-}
-
-export default App
+export default App;
