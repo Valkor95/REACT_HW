@@ -9,25 +9,12 @@ import DataForm from "./componets/DataForm.jsx";
 const App = () => {
     const {data, isLoading, refetch } = useGetPostsQuery()
 
-    useEffect(() => {
-        if (!isLoading && data){
-            setDataArr(data)
-        }
-    }, [data, isLoading]);
-
-
-    const [dataArr, setDataArr] = useState([])
-
     if(isLoading){
         return <CircularProgress sx={centredStyle}/>
     }
 
     if(!data){
         return <h1>No data available</h1>
-    }
-
-    const handleSetForm = (newPost) => {
-        setDataArr(dataArr => [...dataArr, newPost])
     }
 
     return (
@@ -41,8 +28,8 @@ const App = () => {
                 </Button>
             )}
             <Stack spacing={3}>
-                <DataForm addPosts={handleSetForm}/>
-                {dataArr && dataArr.map(post => (
+                <DataForm />
+                {data && data.map(post => (
                         <ListData
                             key={post.id + post.title}
                             title={post.title}
@@ -55,5 +42,6 @@ const App = () => {
 
     );
 };
+
 
 export default App;

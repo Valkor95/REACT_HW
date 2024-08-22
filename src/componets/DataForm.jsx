@@ -5,9 +5,10 @@ import {centredStyle, centredStyleFlex} from "../style/index.js";
 import {useAddPostMutation} from "../store/API_Slice/index.js";
 
 
-const DataForm = ({addPosts}) => {
+const DataForm = () => {
     const [showAlert, setShowAlert] = useState(false);
     const [addPost, {isLoading, isSuccess, isError}] = useAddPostMutation()
+
     const formik = useFormik({
         initialValues:{
             title: '',
@@ -15,9 +16,8 @@ const DataForm = ({addPosts}) => {
         },
         onSubmit: async (values) => {
             try {
-                const newPost = await addPost(values).unwrap()
+                await addPost(values).unwrap()
                 formik.resetForm();
-                addPosts(newPost)
             }catch (e){
                 alert( `'Attention!', ${e.message}`)
             }
@@ -68,14 +68,10 @@ const DataForm = ({addPosts}) => {
                     {isLoading ? 'Submitting...' : 'Submit'}
                 </Button>
 
-
                 {showAlert && <Alert sx={{marginTop: '20px'}} severity={isSuccess ? 'success' : 'error'}>
                     {isSuccess ? 'POST is success!' : isError ? 'There is error!' : null}
                 </Alert>}
-
-
             </form>
-
         </div>
     );
 };
