@@ -1,13 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Grid, Card, CardContent, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useGetProductsQuery } from '../../store/API/slices/apiFakeStore.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterProducts } from '../../store/slices/productsSlice.js';
 
-const products = [
-    { id: 1, name: 'Product 1', price: '$10', image: 'https://via.placeholder.com/150' },
-    { id: 2, name: 'Product 2', price: '$20', image: 'https://via.placeholder.com/150' },
-];
 
 const ProductList = () => {
+    const { data: products = [], isLoading } = useGetProductsQuery();
+    const filteredProducts = useSelector(state => state.products.filteredProducts);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (products.length) {
+            dispatch(filterProducts());
+        }
+    }, [products, dispatch]);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <Grid container spacing={3} style={{display: 'flex', justifyContent: 'center', marginTop: '30px'}}>
             {products.map(product => (
