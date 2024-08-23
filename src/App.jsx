@@ -1,5 +1,8 @@
 import React from "react";
-import CatalogHome from "./pages/CatalogHome";
+import CatalogPage from './pages/CatalogHome';
+import ProductPage from './pages/ProductDetail';
+import CartPage from './pages/ShoppingCart';
+import CheckoutPage from './pages/Checkout';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {Container} from "@mui/material";
 
