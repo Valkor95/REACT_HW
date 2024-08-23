@@ -20,7 +20,7 @@ const ProductList = () => {
                         <CardContent>
                             <Typography variant="h6">{product.name}</Typography>
                             <Typography variant="body1">{product.price}</Typography>
-                            {/*<Button component={Link} to={`/product/${product.id}`}>View Details</Button>*/}
+                            <Button component={Link} to={`/product/${product.id}`}>View Details</Button>
                         </CardContent>
                     </Card>
                 </Grid>
