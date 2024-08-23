@@ -3,7 +3,6 @@ import { Grid, Card, CardContent, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const products = [
-    // Пример товаров
     { id: 1, name: 'Product 1', price: '$10', image: 'https://via.placeholder.com/150' },
     { id: 2, name: 'Product 2', price: '$20', image: 'https://via.placeholder.com/150' },
 ];

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, Typography, Button, Grid } from '@mui/material';
 import { useParams } from 'react-router-dom';
 
-const product = { // Пример товара
+const product = {
     id: 1, name: 'Product 1', price: '$10', image: 'https://via.placeholder.com/150', description: 'Product description', inStock: true
 };
 
