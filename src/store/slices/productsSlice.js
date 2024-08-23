@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { apiSlice } from '../API/apiSlice';
-d
+import { apiSlice } from '../API/slices/apiFakeStore.js';
+
 const initialState = {
     products: [],
     filteredProducts: [],
