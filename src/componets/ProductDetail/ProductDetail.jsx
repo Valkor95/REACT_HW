@@ -1,10 +1,9 @@
 import React from 'react';
 import { Card, CardContent, Typography, Button, Grid } from '@mui/material';
 import { useParams } from 'react-router-dom';
-
-const product = {
-    id: 1, name: 'Product 1', price: '$10', image: 'https://via.placeholder.com/150', description: 'Product description', inStock: true
-};
+import { useGetProductByIdQuery } from '../../store/API/slices/apiFakeStore.js';
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../../store/slices/cartSlice.js';
 
 const ProductDetail = () => {
     const { id } = useParams();
