@@ -5,11 +5,13 @@ import CartPage from './pages/ShoppingCart';
 import CheckoutPage from './pages/Checkout';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {Container} from "@mui/material";
+import Navbar from "./componets/Navbar/Navbar.jsx";
 
 const App = () => {
     return (
         <div>
             <Router>
+                <Navbar/>
                 <Container>
                     <Routes>
                         <Route path="/" element={<CatalogPage />} />
