@@ -13,12 +13,6 @@ const Navbar = () => {
                         Интернет-магазин
                     </NavLink>
                 </Typography>
-                <Button color="inherit" component={NavLink} to="/">
-                    Каталог
-                </Button>
-                <IconButton color="inherit" component={NavLink} to="/cart">
-                    <ShoppingCartIcon />
-                </IconButton>
             </Toolbar>
         </AppBar>
     );
