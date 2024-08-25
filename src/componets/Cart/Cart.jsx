@@ -1,29 +1,75 @@
+// src/components/Cart.jsx
 import React from 'react';
-import { Card, CardContent, Typography, Button, List, ListItem } from '@mui/material';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeItemFromCart, updateItemQuantity } from '../../store/slices/cartSlice.js';
+import { Button, IconButton, Typography, TextField, Grid, Paper } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-const cartItems = [
-    { id: 1, name: 'Product 1', price: '$10', quantity: 1 },
-    { id: 2, name: 'Product 2', price: '$20', quantity: 2 },
-];
 const Cart = () => {
-    const totalPrice = cartItems.reduce((acc, item) => acc + item.quantity * parseFloat(item.price.slice(1)), 0);
+    const dispatch = useDispatch();
+    const cartItems = useSelector((state) => state.cart.items); // Получаем товары из корзины
+
+    const handleRemove = (id) => {
+        dispatch(removeItemFromCart(id)); // Удаление товара из корзины
+    };
+
+    const handleQuantityChange = (id, quantity) => {
+        dispatch(updateItemQuantity({ id, quantity: parseInt(quantity) })); // Обновление количества товара
+    };
+
+    const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0); // Подсчет общей стоимости
+
     return (
-        <div>
-            <h1>Shopping Cart</h1>
-            <Card>
-                <CardContent>
-                    <List>
-                        {cartItems.map(item => (
-                            <ListItem key={item.id}>
-                                <Typography>{item.name} - {item.quantity} x {item.price}</Typography>
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Typography variant="h6">Total: ${totalPrice}</Typography>
-                    <Button>Proceed to Checkout</Button>
-                </CardContent>
-            </Card>
-        </div>
+        <Paper style={{ padding: '20px' }}>
+            <Typography variant="h4" gutterBottom>Корзина</Typography>
+            {cartItems.length === 0 ? (
+                <Typography variant="h6">Ваша корзина пуста</Typography>
+            ) : (
+                <Grid container spacing={2}>
+                    {cartItems.map((item) => (
+                        <Grid item xs={12} key={item.id}>
+                            <Grid container alignItems="center" spacing={2}>
+                                <Grid item xs={3}>
+                                    <img src={item.image} alt={item.title} style={{ width: '100px' }} />
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <Typography variant="subtitle1">{item.title}</Typography>
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <TextField
+                                        type="number"
+                                        value={item.quantity}
+                                        onChange={(e) => handleQuantityChange(item.id, e.target.value)}
+                                        inputProps={{ min: 1 }}
+                                    />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Typography variant="subtitle1">{`$${item.price}`}</Typography>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <Typography variant="subtitle1">{`$${(item.price * item.quantity).toFixed(2)}`}</Typography>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <IconButton color="secondary" onClick={() => handleRemove(item.id)}>
+                                        <DeleteIcon />
+                                    </IconButton>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    ))}
+                    <Grid item xs={12}>
+                        <Typography variant="h6" align="right">
+                            Общая стоимость: ${totalPrice.toFixed(2)}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Button variant="contained" color="primary" fullWidth>
+                            Перейти к оформлению
+                        </Button>
+                    </Grid>
+                </Grid>
+            )}
+        </Paper>
     );
 };
 
