@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeItemFromCart, updateItemQuantity } from '../../store/slices/cartSlice.js';
 import { Button, IconButton, Typography, TextField, Grid, Paper } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import {Link} from "react-router-dom";
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -63,7 +64,7 @@ const Cart = () => {
                         </Typography>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button variant="contained" color="primary" fullWidth>
+                        <Button variant="contained" color="primary" fullWidth component={Link} to="/checkout">
                             Перейти к оформлению
                         </Button>
                     </Grid>
