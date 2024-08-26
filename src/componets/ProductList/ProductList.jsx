@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {useGetProductsQuery} from "../../store/API/slices/apiFakeStore.js";
-import {Box, Card, Grid, ImageList, ImageListItem, Typography} from "@mui/material";
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 const ProductList = () => {
     const {data: product, error, isLoading} = useGetProductsQuery()
@@ -9,40 +9,28 @@ const ProductList = () => {
     if (error) return <div>An error occurred: {error.message}</div>;
     return (
         <div>
-            <Box sx={{ width: '100%', height: 'auto' }}>
-                <ImageList sx={{ width: '100%', height: 'auto' }} cols={3} rowHeight='auto'>
+            <Container>
+                <Row>
                     {product.map(item => (
-                        <ImageListItem key={item.id} sx={{ width: '100%', height: 'auto' }}>
-                            <Box sx={{ position: 'relative' }}>
-                                <img
-                                    srcSet={`${item.image}?w=248&fit=crop&auto=format`}
-                                    src={`${item.image}?w=248&fit=crop&auto=format`}
+                        <Col key={item.id} xs={12} md={4} className="mb-4">
+                            <Card className="h-100">
+                                <Card.Img
+                                    variant="top"
+                                    src={item.image}
                                     alt={item.title}
-                                    loading="lazy"
-                                    style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+                                    style={{ height: 'auto', objectFit: 'cover' }}
                                 />
-                                <Box sx={{
-                                    position: 'absolute',
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    background: 'rgba(0, 0, 0, 0.5)',
-                                    color: 'white',
-                                    padding: '8px',
-                                    textAlign: 'center'
-                                }}>
-                                    <Typography variant="h6" component="div">{item.title}</Typography>
-                                </Box>
-                            </Box>
-                            <Box sx={{ padding: '8px', textAlign: 'center' }}>
-                                <Typography variant="body2">{item.description}</Typography>
-                                <Typography variant="body2">Price: ${item.price}</Typography>
-                                <Typography variant="body2">Category: {item.category}</Typography>
-                            </Box>
-                        </ImageListItem>
+                                <Card.Body>
+                                    <Card.Title>{item.title}</Card.Title>
+                                    <Card.Text>{item.description}</Card.Text>
+                                    <Card.Text><strong>Price:</strong> ${item.price}</Card.Text>
+                                    <Card.Text><strong>Category:</strong> {item.category}</Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
                     ))}
-                </ImageList>
-            </Box>
+                </Row>
+            </Container>
         </div>
     );
 };
