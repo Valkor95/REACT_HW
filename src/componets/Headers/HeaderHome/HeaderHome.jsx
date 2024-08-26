@@ -34,19 +34,29 @@ const HeaderHome = () => {
                     <Col xs="auto">
                         <div className="info d-flex align-items-center gap-5">
                             <div className="d-flex align-items-center ml-3">
-                                <Search>
-                                    <SearchIconWrapper>
-                                        <SearchIcon />
-                                    </SearchIconWrapper>
-                                    <StyledInputBase
-                                        placeholder="Search…"
-                                        inputProps={{ 'aria-label': 'search' }}
-                                    />
-                                </Search>
+                                <form>
+                                    <Search>
+                                        <SearchIconWrapper>
+                                            <SearchIcon />
+                                        </SearchIconWrapper>
+                                        <StyledInputBase
+                                            placeholder="Search…"
+                                            inputProps={{ 'aria-label': 'search' }}
+                                            name="search"
+                                            onChange={() => {}}
+                                            value=""
+                                        />
+                                    </Search>
+                                    <div className="box">
+
+                                    </div>
+                                </form>
                             </div>
                             <div className="d-flex flex-column align-items-center">
-                                <AccountCircleIcon style={{width: '40px', height: '40px', marginRight: '10px'}}/>
-                                <div className="user">Guest</div>
+                                <Link to={ROUTES.HOME}>
+                                    <AccountCircleIcon style={{width: '40px', height: '40px', marginRight: '10px'}}/>
+                                    <div className="user">Guest</div>
+                                </Link>
                             </div>
                             <div className="d-flex align-items-center ml-3">
                                 <AddShoppingCartIcon style={{width: '40px', height: '40px'}}/>
