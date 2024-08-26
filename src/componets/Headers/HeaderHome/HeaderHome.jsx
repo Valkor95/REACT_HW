@@ -13,9 +13,9 @@ const HeaderHome = () => {
             <Container>
                 <Row className="justify-content-between align-items-center">
                     <Col xs="auto">
-                        <div className="logo">
+                        <div className="logo-container" style={{ maxWidth: '150px' }}>
                             <Link to={ROUTES.HOME}>
-                                <img src={Logo} alt="logo" style={{ width: '150px', height: 'auto' }} />
+                                <img src={Logo} alt="logo" style={{ width: '100%', height: 'auto', display: 'block' }} />
                             </Link>
                         </div>
                     </Col>
