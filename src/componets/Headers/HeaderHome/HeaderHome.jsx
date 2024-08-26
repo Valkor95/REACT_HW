@@ -10,6 +10,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import {Search} from "@mui/icons-material";
 import InputBase from '@mui/material/InputBase';
 import SearchStyle from "../../../styles/MUI/Search/index.js";
+import {countCartStyle} from "../../../styles/Other/countCartStyle/index.js";
 
 const HeaderHome = () => {
     const Search = styled('div')(({ theme }) => SearchStyle(theme).search);
@@ -53,15 +54,16 @@ const HeaderHome = () => {
                                 </form>
                             </div>
                             <div className="d-flex flex-column align-items-center">
-                                <Link to={ROUTES.HOME}>
+                                <Link to={ROUTES.HOME}  style={{ textDecoration: 'none', color: 'inherit' }}>
                                     <AccountCircleIcon style={{width: '40px', height: '40px', marginRight: '10px'}}/>
                                     <div className="user">Guest</div>
                                 </Link>
                             </div>
-                            <div className="d-flex align-items-center ml-3">
-                                <Link to={ROUTES.HOME}>
+                            <div className="d-flex flex-column align-items-center ml-3 position-relative">
+                                <Link to={ROUTES.CART}  style={{ textDecoration: 'none', color: 'inherit' }}>
                                      <AddShoppingCartIcon style={{width: '40px', height: '40px'}}/>
                                 </Link>
+                                <span className='count' style={countCartStyle}>2</span>
                             </div>
                         </div>
                     </Col>
