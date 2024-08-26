@@ -59,7 +59,9 @@ const HeaderHome = () => {
                                 </Link>
                             </div>
                             <div className="d-flex align-items-center ml-3">
-                                <AddShoppingCartIcon style={{width: '40px', height: '40px'}}/>
+                                <Link to={ROUTES.HOME}>
+                                     <AddShoppingCartIcon style={{width: '40px', height: '40px'}}/>
+                                </Link>
                             </div>
                         </div>
                     </Col>
