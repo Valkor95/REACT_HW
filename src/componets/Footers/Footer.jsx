@@ -13,7 +13,7 @@ const Footer = () => {
             padding: '30px'
         }}>
             <Container >
-                <Row className="justify-content-center align-items-center">
+                <Row className="justify-content-center align-items-center mb-3">
                     <Col xs="auto">
                         <div className="logo-container" style={{ maxWidth: '50px' }}>
                             <Link to={ROUTES.HOME}>
@@ -23,13 +23,15 @@ const Footer = () => {
                     </Col>
 
                 </Row>
-                <Row className="justify-content-center align-items-center">
+                <Row className="justify-content-center align-items-center mb-3">
                     <Col xs="auto" className='rights'>
                         Developed by Hillel's Student Valeriy Korovin
                     </Col>
                 </Row>
-                <Row className="justify-content-center align-items-center">
-                    <Col xs="auto" className='socials'>
+                <Row className="justify-content-center align-items-center mb-3">
+                    <Col xs="auto" className='socials' style={{display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px'}}>
                         <FacebookIcon/>
                         <LinkedInIcon/>
                         <YouTubeIcon/>
