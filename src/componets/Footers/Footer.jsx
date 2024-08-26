@@ -10,9 +10,10 @@ const Footer = () => {
     return (
         <div className='footer' style={{
             backgroundColor: 'rgba(0, 0, 0, 0.1)',
+            padding: '30px'
         }}>
-            <Container>
-                <Row className="justify-content-between align-items-center">
+            <Container >
+                <Row className="justify-content-center align-items-center">
                     <Col xs="auto">
                         <div className="logo-container" style={{ maxWidth: '50px' }}>
                             <Link to={ROUTES.HOME}>
@@ -21,11 +22,8 @@ const Footer = () => {
                         </div>
                     </Col>
 
-                    <Col xs="auto">
-                        Footer
-                    </Col>
                 </Row>
-                <Row className="justify-content-between align-items-center">
+                <Row className="justify-content-center align-items-center">
                     <Col xs="auto" className='rights'>
                         Developed by Hillel's Student Valeriy Korovin
                     </Col>
