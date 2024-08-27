@@ -22,6 +22,7 @@ const HeaderHome = () => {
     return (
         <div className='header' style={{
             backgroundColor: 'rgba(0, 0, 0, 0.15)',
+            paddingRight: '20px',
         }}>
             <Container>
                 <Row className="justify-content-between align-items-center">
