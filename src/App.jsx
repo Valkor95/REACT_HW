@@ -16,7 +16,6 @@ const App = () => {
                     <AppRoutes/>
                 </div>
 
-
                 <Footer/>
             </BaseTemplate>
         </div>
