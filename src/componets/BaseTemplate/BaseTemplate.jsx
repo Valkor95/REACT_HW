@@ -5,7 +5,7 @@ import {Box} from "@mui/material";
 
 const BaseTemplate = ({children, maxWidth = 'sm'}) => {
     return (
-        <Container component="main"  maxWidth="lg">
+        <Container component="main"  maxWidth={maxWidth}>
             <Box
                 sx={{
                     marginTop: 8,
