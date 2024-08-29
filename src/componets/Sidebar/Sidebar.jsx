@@ -1,17 +1,21 @@
 import React, {useState} from 'react';
 import {List, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Typography} from "@mui/material";
 import {useLazyGetCategoriesQuery} from "../../store/API/slices/fakeStoreApi.js";
+import {useDispatch, useSelector} from "react-redux";
+import {toggleVisibility} from "../../store/slices/visibility.js";
 
 const Sidebar = () => {
+    const dispatch = useDispatch();
+    const isVisible = useSelector((state) => state.visibility.isVisible)
     const [trigger, {data:categories, isLoading}] = useLazyGetCategoriesQuery()
-    const [isVisible, setIsVisible] = useState(false)
+
 
     const handleSubheaderClick = () => {
         if(categories){
-            setIsVisible(!isVisible);
+            dispatch(toggleVisibility());
         } else{
             trigger();
-            setIsVisible(true)
+            dispatch(toggleVisibility(true))
         }
     }
 
