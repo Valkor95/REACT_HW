@@ -16,14 +16,12 @@ const App = () => {
 
             <BaseTemplate maxWidth='xl'>
                 <div className="d-flex" style={{ height: '100%' }}>
-                    {/* Sidebar - фиксированная ширина */}
                     <div className="sidebar" style={{ flex: '0 0 250px' }}>
                         <BaseTemplate maxWidth='xl'>
                             <Sidebar />
                         </BaseTemplate>
                     </div>
 
-                    {/* AppRoutes - занимает оставшееся пространство */}
                     <div className="flex-grow-1">
                         <BaseTemplate maxWidth='xl'>
                             <AppRoutes />
