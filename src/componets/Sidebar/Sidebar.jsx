@@ -7,6 +7,7 @@ import {
 } from "../../store/API/slices/fakeStoreApi.js";
 import {useDispatch, useSelector} from "react-redux";
 import {toggleVisibility} from "../../store/slices/visibility.js";
+import {Link} from "react-router-dom";
 
 
 const Sidebar = () => {
@@ -44,16 +45,20 @@ const Sidebar = () => {
             }
         >
             {isVisible && categories && categories.map((category) => (
+                <Link to={`/:${category}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <ListItemButton
                     key={category}
                 >
                     <ListItemText primary={category.charAt(0).toUpperCase() + category.slice(1)} />
                 </ListItemButton>
+                </Link>
             ))}
             { isVisible && categories && (
-                    <ListItemButton onClick={() => triggerGetProducts()}>
+                <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <ListItemButton>
                         <ListItemText primary='All' />
                     </ListItemButton>
+                </Link>
                 )}
 
         </List>
