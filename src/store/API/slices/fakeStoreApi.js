@@ -10,7 +10,10 @@ export const fakeStoreApi = createApi({
         getCategories: build.query({
             query: () => '/products/categories',
         }),
+        getProducts: build.query({
+            query: () => '/products'
+        })
     }),
 });
 
-export const {useGetCategoriesQuery, useLazyGetCategoriesQuery} = fakeStoreApi
+export const {useGetCategoriesQuery, useLazyGetCategoriesQuery, useGetProductsQuery} = fakeStoreApi
