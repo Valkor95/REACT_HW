@@ -4,18 +4,30 @@ import {
     useLazyGetProductsByCategoryQuery
 } from "../../store/API/slices/fakeStoreApi.js";
 import {Box, Button, Card, CardActions, CardContent, CardMedia, Grid, Typography, useMediaQuery} from "@mui/material";
+import {useParams} from "react-router-dom";
 
 const ProductList = () => {
+    const {categoriesName} = useParams();
+
     const {data: allProducts, isLoading: isLoadingAllProducts} = useGetProductsQuery();
 
     const isSmallScreen = useMediaQuery('(max-width:1400px)');
 
+    const [getProductsByCategory, { data: categoryProducts, isLoading: isLoadingCategoryProducts }] = useLazyGetProductsByCategoryQuery()
 
-    if(isLoadingAllProducts) return <Typography variant='body'>Loading...</Typography>
+    useEffect(() => {
+        if(categoriesName){
+            getProductsByCategory(categoriesName)
+        }
+    }, [categoriesName, getProductsByCategory]);
+
+    if(isLoadingAllProducts || isLoadingCategoryProducts) return <Typography variant='body'>Loading...</Typography>
+
+    const productsToDisplay = categoriesName ? categoryProducts : allProducts;
 
     return  (
         <Grid container spacing={2} sx={{ padding: 2 }}>
-            {allProducts.map((product) => (
+            {productsToDisplay.map((product) => (
                 <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
                     <Card sx={{ maxWidth: 345 }}>
                         <CardMedia
