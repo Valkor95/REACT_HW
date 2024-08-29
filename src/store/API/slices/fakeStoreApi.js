@@ -19,4 +19,4 @@ export const fakeStoreApi = createApi({
     }),
 });
 
-export const {useGetCategoriesQuery, useLazyGetCategoriesQuery, useGetProductsQuery, useLazyGetProductsByCategoryQuery} = fakeStoreApi
+export const {useGetCategoriesQuery, useLazyGetCategoriesQuery, useLazyGetProductsQuery, useGetProductsQuery, useLazyGetProductsByCategoryQuery} = fakeStoreApi

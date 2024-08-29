@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import {List, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Typography} from "@mui/material";
-import {useLazyGetCategoriesQuery} from "../../store/API/slices/fakeStoreApi.js";
+import {
+    useGetProductsQuery,
+    useLazyGetCategoriesQuery,
+    useLazyGetProductsQuery
+} from "../../store/API/slices/fakeStoreApi.js";
 import {useDispatch, useSelector} from "react-redux";
 import {toggleVisibility} from "../../store/slices/visibility.js";
 
@@ -8,7 +12,7 @@ const Sidebar = () => {
     const dispatch = useDispatch();
     const isVisible = useSelector((state) => state.visibility.isVisible)
     const [trigger, {data:categories, isLoading}] = useLazyGetCategoriesQuery()
-
+    const [triggerGetProducts, {data: products}] = useLazyGetProductsQuery();
 
     const handleSubheaderClick = () => {
         if(categories){
@@ -41,6 +45,12 @@ const Sidebar = () => {
                     <ListItemText primary={category.charAt(0).toUpperCase() + category.slice(1)} />
                 </ListItemButton>
             ))}
+            { isVisible && categories && (
+                    <ListItemButton onClick={() => triggerGetProducts()}>
+                        <ListItemText primary='All' />
+                    </ListItemButton>
+                )}
+
         </List>
     );
 };
