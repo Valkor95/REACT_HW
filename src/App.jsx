@@ -10,12 +10,16 @@ const App = () => {
         <div className='app'>
             <BaseTemplate maxWidth='xl'>
                 <HeaderHome/>
+            </BaseTemplate>
 
+            <BaseTemplate maxWidth='xl'>
                 <div className='container'>
                     <Sidebar/>
                     <AppRoutes/>
                 </div>
+            </BaseTemplate>
 
+            <BaseTemplate maxWidth='xl'>
                 <Footer/>
             </BaseTemplate>
         </div>
