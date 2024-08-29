@@ -4,6 +4,7 @@ import HeaderHome from "./componets/Headers/HeaderHome/HeaderHome.jsx";
 import Footer from "./componets/Footers/Footer.jsx";
 import Sidebar from "./componets/Sidebar/Sidebar.jsx";
 import BaseTemplate from "./componets/BaseTemplate/BaseTemplate.jsx";
+import {Col, Row} from "react-bootstrap";
 
 const App = () => {
     return (
@@ -12,10 +13,22 @@ const App = () => {
                 <HeaderHome/>
             </BaseTemplate>
 
+
             <BaseTemplate maxWidth='xl'>
-                <div className='container'>
-                    <Sidebar/>
-                    <AppRoutes/>
+                <div className="d-flex" style={{ height: '100%' }}>
+                    {/* Sidebar - фиксированная ширина */}
+                    <div className="sidebar" style={{ flex: '0 0 250px' }}>
+                        <BaseTemplate maxWidth='xl'>
+                            <Sidebar />
+                        </BaseTemplate>
+                    </div>
+
+                    {/* AppRoutes - занимает оставшееся пространство */}
+                    <div className="flex-grow-1">
+                        <BaseTemplate maxWidth='xl'>
+                            <AppRoutes />
+                        </BaseTemplate>
+                    </div>
                 </div>
             </BaseTemplate>
 
