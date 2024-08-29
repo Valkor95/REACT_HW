@@ -4,28 +4,18 @@ import {
     useLazyGetProductsByCategoryQuery
 } from "../../store/API/slices/fakeStoreApi.js";
 import {Box, Button, Card, CardActions, CardContent, CardMedia, Grid, Typography, useMediaQuery} from "@mui/material";
-import {useSelector} from "react-redux";
 
 const ProductList = () => {
     const {data: allProducts, isLoading: isLoadingAllProducts} = useGetProductsQuery();
-    const [getProductsByCategory, { data: productsCategory, isLoading: isLoadingCategoryProducts}] = useLazyGetProductsByCategoryQuery();
 
     const isSmallScreen = useMediaQuery('(max-width:1400px)');
-    const selectedCategory = useSelector((state) => state.category);
 
-    useEffect(() => {
-        if (selectedCategory) {
-            getProductsByCategory(selectedCategory);
-        }
-    }, [selectedCategory, getProductsByCategory]);
 
-    if(isLoadingAllProducts || isLoadingCategoryProducts) return <Typography variant='body'>Loading...</Typography>
-
-    const productsToDisplay = selectedCategory ? productsCategory : allProducts;
+    if(isLoadingAllProducts) return <Typography variant='body'>Loading...</Typography>
 
     return  (
         <Grid container spacing={2} sx={{ padding: 2 }}>
-            {productsToDisplay.map((product) => (
+            {allProducts.map((product) => (
                 <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
                     <Card sx={{ maxWidth: 345 }}>
                         <CardMedia
@@ -42,7 +32,7 @@ const ProductList = () => {
 
                             {isSmallScreen ? (
                                 <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 2 }}>
-                                    <Typography gutterBottom variant="h4" component="div">
+                                    <Typography gutterBottom variant="h6" component="div">
                                         {product.price}$
                                     </Typography>
                                 </Box>
