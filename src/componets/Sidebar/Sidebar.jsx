@@ -46,7 +46,7 @@ const Sidebar = () => {
             {isVisible && categories && categories.map((category) => (
                 <Link
                     key={category}
-                    to={`/category/:${category}`}
+                    to={`/category/${category}`}
                     style={{ textDecoration: 'none', color: 'inherit' }}>
                 <ListItemButton
                     key={category}
