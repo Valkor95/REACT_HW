@@ -15,7 +15,6 @@ const Sidebar = () => {
     const isVisible = useSelector((state) => state.visibility.isVisible)
 
     const [trigger, {data:categories, isLoading}] = useLazyGetCategoriesQuery()
-    const [triggerGetProducts, {data: products}] = useLazyGetProductsQuery();
 
 
     const handleSubheaderClick = () => {
@@ -45,7 +44,10 @@ const Sidebar = () => {
             }
         >
             {isVisible && categories && categories.map((category) => (
-                <Link to={`/category/:${category}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link
+                    key={category}
+                    to={`/category/:${category}`}
+                    style={{ textDecoration: 'none', color: 'inherit' }}>
                 <ListItemButton
                     key={category}
                 >
