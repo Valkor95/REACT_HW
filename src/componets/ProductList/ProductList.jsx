@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import {useGetProductsQuery, useLazyGetCategoriesQuery} from "../../store/API/slices/fakeStoreApi.js";
-import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography} from "@mui/material";
+import {Box, Button, Card, CardActions, CardContent, CardMedia, Grid, Typography, useMediaQuery} from "@mui/material";
 
 const ProductList = () => {
-    const {data: products, isLoading} = useGetProductsQuery()
+    const {data: products, isLoading} = useGetProductsQuery();
+    const isSmallScreen = useMediaQuery('(max-width:1400px)');
 
     if(isLoading) return <Typography variant='body'>Loading...</Typography>
 
@@ -23,9 +24,19 @@ const ProductList = () => {
                             <Typography gutterBottom variant="h5" component="div">
                                 {product.title}
                             </Typography>
-                            <Typography gutterBottom variant="h2" component="div">
-                                {product.price}$
-                            </Typography>
+
+                            {isSmallScreen ? (
+                                <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 2 }}>
+                                    <Typography gutterBottom variant="h4" component="div">
+                                        {product.price}$
+                                    </Typography>
+                                </Box>
+                            ) : (
+                                <Typography gutterBottom variant="h2" component="div">
+                                    {product.price}$
+                                </Typography>
+                            )}
+
                             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                                 {product.description}
                             </Typography>

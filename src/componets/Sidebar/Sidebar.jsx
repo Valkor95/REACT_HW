@@ -31,7 +31,7 @@ const Sidebar = () => {
                     id="nested-list-subheader"
                     onClick={handleSubheaderClick}
                     style={{ cursor: 'pointer' }}
-                >
+              d  >
                     CATEGORIES
                 </ListSubheader>
             }
