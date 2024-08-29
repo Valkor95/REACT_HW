@@ -12,8 +12,10 @@ import {setCategory} from "../../store/slices/category.js";
 const Sidebar = () => {
     const dispatch = useDispatch();
     const isVisible = useSelector((state) => state.visibility.isVisible)
+
     const [trigger, {data:categories, isLoading}] = useLazyGetCategoriesQuery()
     const [triggerGetProducts, {data: products}] = useLazyGetProductsQuery();
+
     const selectedCategory = useSelector((state) => state.category);
 
     const handleSubheaderClick = () => {
