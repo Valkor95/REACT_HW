@@ -19,7 +19,7 @@ const ProductList = () => {
         if(categoriesName){
             getProductsByCategory(categoriesName)
         }
-    }, [categoriesName, getProductsByCategory]);
+    }, [categoriesName]);
 
     if(isLoadingAllProducts || isLoadingCategoryProducts) return <Typography variant='body'>Loading...</Typography>
 
