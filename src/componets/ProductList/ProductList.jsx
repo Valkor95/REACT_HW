@@ -25,6 +25,10 @@ const ProductList = () => {
 
     const productsToDisplay = categoriesName ? categoryProducts : allProducts;
 
+    if (!productsToDisplay) {
+        return <Typography variant='body'>No products available.</Typography>;
+    }
+
     return  (
         <Grid container spacing={2} sx={{ padding: 2 }}>
             {productsToDisplay.map((product) => (
