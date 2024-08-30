@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
-import ProductList from "../componets/ProductList/ProductList.jsx";
+import ProductList from "./ProductList.jsx";
 
 const AppRoutes = () => {
     return (
