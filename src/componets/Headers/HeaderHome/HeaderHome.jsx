@@ -66,7 +66,7 @@ const HeaderHome = () => {
                                      <AddShoppingCartIcon style={{width: '40px', height: '40px'}}/>
                                 </Link>
                                 {count > 0 && (
-                                    <span className='count' style={countCartStyle}>2</span>
+                                    <span className='count' style={countCartStyle}>{count}</span>
                                 )}
                             </div>
                         </div>
