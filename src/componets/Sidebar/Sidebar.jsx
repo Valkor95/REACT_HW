@@ -8,6 +8,7 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {toggleVisibility} from "../../store/slices/visibility.js";
 import {Link} from "react-router-dom";
+import {ROUTES} from "../../utils/routes.js";
 
 
 const Sidebar = () => {
@@ -46,7 +47,7 @@ const Sidebar = () => {
             {isVisible && categories && categories.map((category) => (
                 <Link
                     key={category}
-                    to={`/category/${category}`}
+                    to={`${ROUTES.CATEGORY}${category}`}
                     style={{ textDecoration: 'none', color: 'inherit' }}>
                 <ListItemButton
                     key={category}
@@ -56,7 +57,7 @@ const Sidebar = () => {
                 </Link>
             ))}
             { isVisible && categories && (
-                <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link to={ROUTES.HOME} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <ListItemButton>
                         <ListItemText primary='All' />
                     </ListItemButton>
