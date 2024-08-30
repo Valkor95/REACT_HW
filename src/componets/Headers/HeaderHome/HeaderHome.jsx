@@ -11,13 +11,14 @@ import {Search} from "@mui/icons-material";
 import InputBase from '@mui/material/InputBase';
 import SearchStyle from "../../../styles/MUI/Search/index.js";
 import {countCartStyle} from "../../../styles/Other/countCartStyle/index.js";
+import {useSelector} from "react-redux";
 
 const HeaderHome = () => {
     const Search = styled('div')(({ theme }) => SearchStyle(theme).search);
-
     const SearchIconWrapper = styled('div')(({ theme }) => SearchStyle(theme).searchIconWrapper);
-
     const StyledInputBase = styled(InputBase)(({ theme }) => SearchStyle(theme).styledInputBase);
+
+    const count = useSelector((state) => state.cartCount.count);
 
     return (
         <div className='header' style={{
@@ -64,7 +65,9 @@ const HeaderHome = () => {
                                 <Link to={ROUTES.CART}  style={{ textDecoration: 'none', color: 'inherit' }}>
                                      <AddShoppingCartIcon style={{width: '40px', height: '40px'}}/>
                                 </Link>
-                                <span className='count' style={countCartStyle}>2</span>
+                                {count > 0 && (
+                                    <span className='count' style={countCartStyle}>2</span>
+                                )}
                             </div>
                         </div>
                     </Col>
