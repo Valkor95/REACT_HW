@@ -1,16 +1,15 @@
 import React from 'react';
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
-import {useDispatch, useSelector} from "react-redux";
-import {increment} from "../../store/slices/cartCount.js";
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../store/slices/cartCount.js";
 
 const ProductCard = ({ product }) => {
     const isSmallScreen = useMediaQuery('(max-width:1400px)');
     const dispatch = useDispatch();
-    const count = useSelector((state) => state.cartCount.count);
 
     const handleAddToCart = () => {
-        dispatch(increment());
+        dispatch(addToCart({id: product.id}));
     };
 
     return (
