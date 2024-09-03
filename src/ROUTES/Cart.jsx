@@ -1,9 +1,10 @@
 import React from 'react';
+import CartWindow from "../componets/CartWindow/CartWindow.jsx";
 
 const Cart = () => {
     return (
         <div>
-            Hello
+            <CartWindow/>
         </div>
     );
 };
