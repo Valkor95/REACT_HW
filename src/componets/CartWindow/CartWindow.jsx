@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useGetProductsByIdQuery } from "../../store/API/slices/fakeStoreApi.js";
+import {useDispatch} from "react-redux";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -16,6 +17,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const CartWindow = () => {
     const cartItems = JSON.parse(localStorage.getItem('cartCount')) || [];
+    const dispatch = useDispatch();
 
     return (
         <Box sx={{ flexGrow: 1 }}>
