@@ -21,7 +21,6 @@ const HeaderHome = () => {
     const itemsCount = useSelector((state) => {
         if (state.cartCount && state.cartCount.items) {
             const count = state.cartCount.items.reduce((total, item) => total + item.quantity, 0);
-            console.log("Items Count: ", count);
             return count;
         }
         return 0;
