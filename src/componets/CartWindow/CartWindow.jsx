@@ -1,7 +1,7 @@
 import React from 'react';
-import {Box, Grid, Paper, Typography} from "@mui/material";
-import {styled} from "@mui/material/styles";
-import {useGetProductsByIdQuery} from "../../store/API/slices/fakeStoreApi.js";
+import { Box, Grid, Paper, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { useGetProductsByIdQuery } from "../../store/API/slices/fakeStoreApi.js";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -29,13 +29,19 @@ const CartWindow = () => {
                     return (
                         <Grid container key={cartItem.id} spacing={1} sx={{ marginBottom: '10px' }}>
                             <Grid item xs={6}>
-                                <Typography variant="h6">{product.title}</Typography>
+                                <Item>
+                                    <Typography variant="h6">{product.title}</Typography>
+                                </Item>
                             </Grid>
                             <Grid item xs={3}>
-                                <Typography>Количество: {cartItem.quantity}</Typography>
+                                <Item>
+                                    <Typography>Количество: {cartItem.quantity}</Typography>
+                                </Item>
                             </Grid>
                             <Grid item xs={3}>
-                                <Typography>Цена: ${product.price}</Typography>
+                                <Item>
+                                    <Typography>Цена: ${product.price}</Typography>
+                                </Item>
                             </Grid>
                         </Grid>
                     );
