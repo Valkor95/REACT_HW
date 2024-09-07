@@ -40,12 +40,15 @@ const cartCount = createSlice({
             } else if (itemIndex !== -1 && state.items[itemIndex].quantity === 1) {
                 state.items.splice(itemIndex, 1);
             }
+            saveCartToLocalStorage(state.items);
         },
         removeFromCart: (state, action) => {
             state.items = state.items.filter(item => item.id !== action.payload.id);
+            saveCartToLocalStorage(state.items);
         },
         clearCart: (state) => {
             state.items = [];
+            saveCartToLocalStorage(state.items);
         }
     },
 });

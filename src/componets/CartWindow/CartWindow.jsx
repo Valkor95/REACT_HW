@@ -77,7 +77,6 @@ const CartWindow = () => {
                 <Button
                     variant="contained"
                     color="success"
-                    onClick={() => dispatch(clearCart())}
                 >
                     Checkout
                     <ShoppingCartCheckoutIcon style={{ color: 'white', marginLeft: 10}} />
