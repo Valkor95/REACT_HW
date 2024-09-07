@@ -42,7 +42,7 @@ const CartWindow = () => {
                             </Grid>
                             <Grid item xs={3}>
                                 <Item>
-                                    <Typography>Цена: ${product.price}</Typography>
+                                    <Typography>Цена: ${product.price*cartItem.quantity}</Typography>
                                 </Item>
                             </Grid>
                         </Grid>
