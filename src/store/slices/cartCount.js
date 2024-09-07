@@ -2,12 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const loadCartFromLocalStorage = () => {
     const savedCart = localStorage.getItem('cartCount');
-    return savedCart ? JSON.parse(savedCart) : [];
+    try {
+        return savedCart ? JSON.parse(savedCart) : [];
+    } catch (e) {
+        return [];
+    }
 };
 
-const saveCartToLocalStorage = (cart) => {
-    localStorage.setItem('cartCount', JSON.stringify(cart));
-};
 
 const cartCount = createSlice({
     name: 'cartCount',
@@ -53,6 +54,13 @@ const cartCount = createSlice({
     },
 });
 
+const saveCartToLocalStorage = (cart) => {
+    try {
+        localStorage.setItem('cartCount', JSON.stringify(cart));
+    } catch (e) {
+        console.error('Ошибка при сохранении корзины в localStorage:', e);
+    }
+};
 export const { addToCart, incrementQuantity, decrementQuantity , removeFromCart, clearCart} = cartCount.actions;
 
 export default cartCount.reducer;

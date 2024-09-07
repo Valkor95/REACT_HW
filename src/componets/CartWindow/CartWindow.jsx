@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Box, Button, Grid, IconButton, Paper, Typography} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useGetProductsByIdQuery } from "../../store/API/slices/fakeStoreApi.js";
@@ -21,8 +21,11 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const CartWindow = () => {
-    const cartItems = JSON.parse(localStorage.getItem('cartCount')) || [];
+    const cartItems = useSelector((state) => state.cartCount.items);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+    }, [cartItems]);
 
     return (
         <Box sx={{ flexGrow: 1 }}>
