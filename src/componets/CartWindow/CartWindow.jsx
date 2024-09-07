@@ -2,7 +2,11 @@ import React from 'react';
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useGetProductsByIdQuery } from "../../store/API/slices/fakeStoreApi.js";
-import {useDispatch} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { incrementQuantity, decrementQuantity, removeFromCart, clearCart } from '../../store/slices/cartCount.js'
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
