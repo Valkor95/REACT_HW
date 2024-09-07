@@ -27,6 +27,14 @@ const CartWindow = () => {
     useEffect(() => {
     }, [cartItems]);
 
+    if (cartItems.length === 0) {
+        return (
+            <Box sx={{ textAlign: 'center', marginTop: 2 }}>
+                <Typography variant="h6">Корзина пуста</Typography>
+            </Box>
+        );
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={1}>
