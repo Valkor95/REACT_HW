@@ -19,10 +19,8 @@ const cartCount = createSlice({
         addToCart: (state, action) => {
             const itemIndex = state.items.findIndex(item => item.id === action.payload.id);
             if (itemIndex === -1) {
-                // Добавляем новый товар в корзину
                 state.items.push({ id: action.payload.id, quantity: 1 });
             } else {
-                // Увеличиваем количество существующего товара
                 state.items[itemIndex].quantity += 1;
             }
             saveCartToLocalStorage(state.items)

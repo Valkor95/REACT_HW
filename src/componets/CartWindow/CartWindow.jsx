@@ -30,7 +30,7 @@ const CartWindow = () => {
     if (cartItems.length === 0) {
         return (
             <Box sx={{ textAlign: 'center', marginTop: 2 }}>
-                <Typography variant="h6">Корзина пуста</Typography>
+                <Typography variant="h6">Cart is empty!</Typography>
             </Box>
         );
     }
