@@ -53,14 +53,15 @@ const Sidebar = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}>
                 <ListItemButton
                     key={category}
+                    sx={cardHoverScale}
                 >
-                    <ListItemText primary={category.charAt(0).toUpperCase() + category.slice(1)} sx={cardHoverScale}/>
+                    <ListItemText primary={category.charAt(0).toUpperCase() + category.slice(1)} />
                 </ListItemButton>
                 </Link>
             ))}
             { isVisible && categories && (
                 <Link to={ROUTES.HOME} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <ListItemButton>
+                    <ListItemButton sx={cardHoverScale}>
                         <ListItemText primary='All' />
                     </ListItemButton>
                 </Link>

@@ -4,6 +4,8 @@ import { useMediaQuery } from "@mui/material";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../store/slices/cartCount.js";
 import {cardHover} from "../../styles/Other/CardHover/index.js";
+import {Link} from "react-router-dom";
+import {ROUTES} from "../../utils/routes.js";
 
 const ProductCard = ({ product }) => {
     const isSmallScreen = useMediaQuery('(max-width:1400px)');
@@ -52,7 +54,9 @@ const ProductCard = ({ product }) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Detail</Button>
+                <Link to={ROUTES.CARD}>
+                    <Button size="small">Detail</Button>
+                </Link>
                 <Button size="small" onClick={handleAddToCart}>Add to cart</Button>
             </CardActions>
         </Card>
