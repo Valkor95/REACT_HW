@@ -13,6 +13,14 @@ const ProductCard = ({ product }) => {
         dispatch(addToCart({id: product.id}));
     };
 
+    const truncateText = (text, wordLimit) => {
+        const words = text.split(' ');
+        if (words.length > wordLimit) {
+            return words.slice(0, wordLimit).join(' ') + '...';
+        }
+        return text;
+    };
+
     return (
         <Card sx={{ maxWidth: 345, ...cardHover }}>
             <CardMedia
@@ -40,7 +48,7 @@ const ProductCard = ({ product }) => {
                 )}
 
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {product.description}
+                    {truncateText(product.description, 10)}
                 </Typography>
             </CardContent>
             <CardActions>
