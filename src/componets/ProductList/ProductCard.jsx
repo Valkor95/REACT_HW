@@ -3,6 +3,7 @@ import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } fr
 import { useMediaQuery } from "@mui/material";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../store/slices/cartCount.js";
+import {cardHover} from "../../styles/Other/CardHover/index.js";
 
 const ProductCard = ({ product }) => {
     const isSmallScreen = useMediaQuery('(max-width:1400px)');
@@ -13,7 +14,7 @@ const ProductCard = ({ product }) => {
     };
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345, ...cardHover }}>
             <CardMedia
                 component="img"
                 alt={product.title}
@@ -33,7 +34,7 @@ const ProductCard = ({ product }) => {
                         </Typography>
                     </Box>
                 ) : (
-                    <Typography gutterBottom variant="h2" component="div">
+                    <Typography gutterBottom variant="h3" component="div">
                         {product.price}$
                     </Typography>
                 )}
