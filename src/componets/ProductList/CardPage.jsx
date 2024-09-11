@@ -21,42 +21,42 @@ const CardPage = () => {
     if (isError)  return <NoProductsMessage/>;
 
     return (
-        <Box sx={{ padding: 2 }}>
-            <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
+        <Box sx={{ padding: 1 }}>
+            <Grid container spacing={2} >
+                <Grid item xs={6} md={6}>
                     <CardMedia
                         component="img"
                         image={product.image}
                         alt={product.title}
-                        sx={{ width: '100%', height: 'auto' }}
+                        sx={{ width: '80%', height: 'auto' }}
                     />
                 </Grid>
-                <Grid item xs={12} md={6}>
-                    <Typography variant="h4" gutterBottom>
-                        {product.title}
-                    </Typography>
-                    <Typography variant="h6" color="textSecondary" gutterBottom>
-                        Price: ${product.price}
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
-                        Category: {product.category}
-                    </Typography>
-                    <Typography variant="body2" paragraph>
-                        {product.description}
-                    </Typography>
-                    <Button variant="contained" color="primary" onClick={handleAddToCart}>
-                        Add to Cart
-                    </Button>
-                    <Link to={ROUTES.HOME} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <Button
-                            variant="contained"
-                            color="secondary"
-                            style={{marginLeft: 10}}
-                            onClick={handleAddToCart}>
-                            Back to menu
+                    <Grid item xs={6} md={6}>
+                        <Typography variant="h4" gutterBottom>
+                            {product.title}
+                        </Typography>
+                        <Typography variant="h6" color="textSecondary" gutterBottom>
+                            Price: ${product.price}
+                        </Typography>
+                        <Typography variant="h5" gutterBottom>
+                            Category: {product.category}
+                        </Typography>
+                        <Typography variant="body2" paragraph>
+                            {product.description}
+                        </Typography>
+                        <Button variant="contained" color="primary" onClick={handleAddToCart}>
+                            Add to Cart
                         </Button>
-                    </Link>
-                </Grid>
+                        <Link to={ROUTES.HOME} style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                style={{marginLeft: 10}}
+                                onClick={handleAddToCart}>
+                                Back to menu
+                            </Button>
+                        </Link>
+                    </Grid>
             </Grid>
         </Box>
     );
