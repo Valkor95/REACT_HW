@@ -54,7 +54,7 @@ const ProductCard = ({ product }) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Link to={ROUTES.CARD}>
+                <Link to={`${ROUTES.CARD}/${product.id}`}>
                     <Button size="small">Detail</Button>
                 </Link>
                 <Button size="small" onClick={handleAddToCart}>Add to cart</Button>

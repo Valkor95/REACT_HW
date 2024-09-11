@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useGetProductByIdQuery} from "../../store/API/slices/fakeStoreApi.js";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../store/slices/cartCount.js";
 import LoadingIndicator from "./LoadingIndicator.jsx";
 import NoProductsMessage from "./NoProductsMesssage.jsx";
 import {Box, Button, CardMedia, Grid, Typography} from "@mui/material";
+import {ROUTES} from "../../utils/routes.js";
 
 const CardPage = () => {
     const {id} = useParams();
@@ -46,6 +47,15 @@ const CardPage = () => {
                     <Button variant="contained" color="primary" onClick={handleAddToCart}>
                         Add to Cart
                     </Button>
+                    <Link to={ROUTES.HOME} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            style={{marginLeft: 10}}
+                            onClick={handleAddToCart}>
+                            Back to menu
+                        </Button>
+                    </Link>
                 </Grid>
             </Grid>
         </Box>
