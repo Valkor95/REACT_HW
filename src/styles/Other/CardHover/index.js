@@ -6,3 +6,18 @@ export const cardHover = {
     },
 };
 
+export const cardHoverWithoutShadow = {
+    '&:hover': {
+        transition: 'all 0.9s',
+        transform: 'translateY(-10px)',
+        boxShadow: 'none',
+    },
+};
+
+export const cardHoverScale = {
+    '&:hover': {
+        transition: 'all 0.9s',
+        transform: 'scale(1.10)',
+        boxShadow: 'none',
+    },
+};

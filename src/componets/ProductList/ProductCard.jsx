@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
     };
 
     return (
-        <Card sx={{ maxWidth: 345, ...cardHover }}>
+        <Card sx={{ maxWidth: 345, ...cardHover, padding: "15px"}}>
             <CardMedia
                 component="img"
                 alt={product.title}
@@ -37,12 +37,12 @@ const ProductCard = ({ product }) => {
 
                 {isSmallScreen ? (
                     <Box sx={{ display: 'flex', justifyContent: 'center', marginBottom: 2 }}>
-                        <Typography gutterBottom variant="h6" component="div">
+                        <Typography gutterBottom variant="h5" component="div">
                             {product.price}$
                         </Typography>
                     </Box>
                 ) : (
-                    <Typography gutterBottom variant="h3" component="div">
+                    <Typography gutterBottom variant="h4" component="div">
                         {product.price}$
                     </Typography>
                 )}

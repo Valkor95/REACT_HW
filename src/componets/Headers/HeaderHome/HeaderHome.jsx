@@ -11,6 +11,8 @@ import InputBase from '@mui/material/InputBase';
 import SearchStyle from "../../../styles/MUI/Search/index.js";
 import { countCartStyle } from "../../../styles/Other/countCartStyle/index.js";
 import { useSelector } from "react-redux";
+import {cardHover, cardHoverWithoutShadow} from "../../../styles/Other/CardHover/index.js";
+import {Box} from "@mui/material";
 
 const HeaderHome = () => {
     // Переименуем компонент Search в SearchContainer
@@ -67,14 +69,14 @@ const HeaderHome = () => {
                                     <div className="user">Guest</div>
                                 </Link>
                             </div>
-                            <div className="d-flex flex-column align-items-center ml-3 position-relative">
-                                <Link to={ROUTES.CART} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    <AddShoppingCartIcon style={{ width: '40px', height: '40px' }} />
+                            <Box className="d-flex flex-column align-items-center ml-3 position-relative" sx={cardHoverWithoutShadow}>
+                                <Link to={ROUTES.CART} style={{ textDecoration: 'none', color: 'inherit'}}>
+                                    <AddShoppingCartIcon style={{ width: '40px', height: '40px'}} />
                                 </Link>
                                 {itemsCount > 0 && (
                                     <span className='count' style={countCartStyle}>{itemsCount}</span>
                                 )}
-                            </div>
+                            </Box>
                         </div>
                     </Col>
                 </Row>

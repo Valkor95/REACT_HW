@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {toggleVisibility} from "../../store/slices/visibility.js";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../utils/routes.js";
+import {cardHover, cardHoverScale, cardHoverWithoutShadow} from "../../styles/Other/CardHover/index.js";
 
 
 const Sidebar = () => {
@@ -39,6 +40,7 @@ const Sidebar = () => {
                     id="nested-list-subheader"
                     onClick={handleSubheaderClick}
                     style={{ cursor: 'pointer' }}
+                    sx={cardHoverWithoutShadow}
               >
                     CATEGORIES
                 </ListSubheader>
@@ -52,7 +54,7 @@ const Sidebar = () => {
                 <ListItemButton
                     key={category}
                 >
-                    <ListItemText primary={category.charAt(0).toUpperCase() + category.slice(1)} />
+                    <ListItemText primary={category.charAt(0).toUpperCase() + category.slice(1)} sx={cardHoverScale}/>
                 </ListItemButton>
                 </Link>
             ))}

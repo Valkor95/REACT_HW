@@ -7,6 +7,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { incrementQuantity, decrementQuantity, removeFromCart, clearCart } from '../../store/slices/cartCount.js';
+import {cardHoverScale, cardHoverWithoutShadow} from "../../styles/Other/CardHover/index.js";
 
 // Стили для компонента
 const Item = styled(Paper)(({ theme }) => ({
@@ -94,10 +95,10 @@ const CartWindow = () => {
                                 <Grid item xs={3}>
                                     <Typography>Количество: {cartItem.quantity}</Typography>
                                     <IconButton onClick={() => dispatch(incrementQuantity({ id: cartItem.id }))}>
-                                        <AddIcon />
+                                        <AddIcon sx={cardHoverScale}/>
                                     </IconButton>
                                     <IconButton onClick={() => dispatch(decrementQuantity({ id: cartItem.id }))}>
-                                        <RemoveIcon />
+                                        <RemoveIcon sx={cardHoverScale}/>
                                     </IconButton>
                                 </Grid>
                                 <Grid item xs={2}>
@@ -105,7 +106,7 @@ const CartWindow = () => {
                                 </Grid>
                                 <Grid item xs={1}>
                                     <IconButton onClick={() => dispatch(removeFromCart({ id: cartItem.id }))}>
-                                        <DeleteIcon style={{ color: 'red' }} />
+                                        <DeleteIcon style={{ color: 'red' }} sx={cardHoverScale}/>
                                     </IconButton>
                                 </Grid>
                             </Grid>
@@ -115,7 +116,7 @@ const CartWindow = () => {
             </Grid>
             <Box sx={{ marginTop: 2 }}>
                 <Button
-                    sx={{ marginRight: 2 }}
+                    sx={{ ...cardHoverScale, marginRight: 2 }}
                     variant="contained"
                     color="secondary"
                     onClick={() => dispatch(clearCart())}
@@ -125,6 +126,7 @@ const CartWindow = () => {
                 <Button
                     variant="contained"
                     color="success"
+                    sx={cardHoverScale}
                 >
                     Оформить заказ
                     <ShoppingCartCheckoutIcon style={{ color: 'white', marginLeft: 10 }} />
