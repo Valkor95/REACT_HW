@@ -57,7 +57,7 @@ const ProductCard = ({ product }) => {
                 <Link to={`${ROUTES.CARD}/${product.id}`}>
                     <Button size="small">Detail</Button>
                 </Link>
-                <Button size="small" onClick={handleAddToCart}>Add to cart</Button>
+                <Button variant="contained" color="success" size="small" onClick={handleAddToCart}>Buy</Button>
             </CardActions>
         </Card>
     );
