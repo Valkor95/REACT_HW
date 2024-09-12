@@ -121,14 +121,14 @@ const CartWindow = () => {
                     color="secondary"
                     onClick={() => dispatch(clearCart())}
                 >
-                    Очистить корзину
+                    Clear cart
                 </Button>
                 <Button
                     variant="contained"
                     color="success"
                     sx={cardHoverScale}
                 >
-                    Оформить заказ
+                    Checkout
                     <ShoppingCartCheckoutIcon style={{ color: 'white', marginLeft: 10 }} />
                 </Button>
             </Box>
