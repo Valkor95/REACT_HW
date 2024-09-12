@@ -35,12 +35,17 @@ const CheckoutList = () => {
         },
         validationSchema: Yup.object({
             city: Yup.string().required('Выберите город'),
+            lastName: Yup.string().required('Введите фамилию'),
+            firstName: Yup.string().required('Введите имя'),
+            patronymic: Yup.string(),
             agree: Yup.boolean().oneOf([true], 'Необходимо согласиться с условиями'),
         }),
         onSubmit: (values) => {
             console.log('Данные формы:', values);
             // Логика отправки данных формы
         },
+        validateOnChange: true,
+        validateOnBlur: true,
     });
 
     useEffect(() => {
@@ -70,7 +75,7 @@ const CheckoutList = () => {
         };
 
         fetchWarehouses();
-    }, [formik.values.city]);
+    }, [formik.values.city, deliveryMethod]);
 
 
     return (
