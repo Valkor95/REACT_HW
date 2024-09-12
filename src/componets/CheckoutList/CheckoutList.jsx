@@ -15,22 +15,58 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import {useNavigate} from "react-router-dom";
+import {ROUTES} from "../../utils/routes.js";
 
 const cityOptions = ['Київ', 'Одеса', 'Харків', 'Львів', 'Кривий Ріг'];
 
 const CheckoutList = () => {
+    const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
     const [deliveryMethod, setDeliveryMethod] = useState('pickup');
+
+    const handleSubmit = async (values) => {
+        console.log('Данные формы:', values);
+        // Пример отправки данных на fakeStore API
+        try {
+            const response = await fetch('https://fakestoreapi.com/carts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId: 1,  // можно передать ID пользователя, если есть
+                    date: new Date(),
+                    products: JSON.parse(localStorage.getItem('cartCount')) || [],  // Продукты из localStorage
+                    ...values  // Данные из формы
+                }),
+            });
+
+            if (response.ok) {
+                // Очищаем localStorage
+                localStorage.removeItem('cartCount');
+                alert('Заказ успешно оформлен!');
+                navigate(ROUTES.HOME);
+            }
+        } catch (error) {
+            console.error('Ошибка отправки данных:', error);
+        }
+    };
     // Инициализация Formik
     const formik = useFormik({
         initialValues: {
             city: '',
+            phone: '',
             lastName: '',
             firstName: '',
             patronymic: '',
             agree: false,
             deliveryDate: '',
             warehouse: '',
+            receiverLastName: '',
+            receiverFirstName: '',
+            receiverPatronymic: '',
+            receiverPhone: '',
             paymentMethod: 'cashOnDelivery',
         },
         validationSchema: Yup.object({
@@ -38,15 +74,14 @@ const CheckoutList = () => {
             lastName: Yup.string().required('Введите фамилию'),
             firstName: Yup.string().required('Введите имя'),
             patronymic: Yup.string(),
+            phone: Yup.string().required('Укажите телефон'),
             agree: Yup.boolean().oneOf([true], 'Необходимо согласиться с условиями'),
         }),
-        onSubmit: (values) => {
-            console.log('Данные формы:', values);
-            // Логика отправки данных формы
-        },
+        onSubmit: handleSubmit,
         validateOnChange: true,
         validateOnBlur: true,
     });
+
 
     useEffect(() => {
         const fetchWarehouses = async () => {
@@ -149,6 +184,19 @@ const CheckoutList = () => {
                                     margin="normal"
                                 />
                             </Grid>
+                            <Grid item xs={12} sm={12}>
+                                <TextField
+                                    fullWidth
+                                    id="phone"
+                                    name="phone"
+                                    label="Телефон"
+                                    value={formik.values.phone}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    helperText={formik.touched.phone && formik.errors.phone ? formik.errors.phone : ''}
+                                    margin="normal"
+                                />
+                            </Grid>
                         </Grid>
                     </Box>
 
@@ -168,6 +216,42 @@ const CheckoutList = () => {
 
                         {deliveryMethod === 'novaPoshta' && (
                             <>
+                                <TextField
+                                    fullWidth
+                                    id="receiverLastName"
+                                    name="receiverLastName"
+                                    label="Фамилия получателя"
+                                    value={formik.values.receiverLastName}
+                                    onChange={formik.handleChange}
+                                    margin="normal"
+                                />
+                                <TextField
+                                    fullWidth
+                                    id="receiverFirstName"
+                                    name="receiverFirstName"
+                                    label="Имя получателя"
+                                    value={formik.values.receiverFirstName}
+                                    onChange={formik.handleChange}
+                                    margin="normal"
+                                />
+                                <TextField
+                                    fullWidth
+                                    id="receiverPatronymic"
+                                    name="receiverPatronymic"
+                                    label="Отчество получателя"
+                                    value={formik.values.receiverPatronymic}
+                                    onChange={formik.handleChange}
+                                    margin="normal"
+                                />
+                                <TextField
+                                    fullWidth
+                                    id="receiverPhone"
+                                    name="receiverPhone"
+                                    label="Телефон получателя"
+                                    value={formik.values.receiverPhone}
+                                    onChange={formik.handleChange}
+                                    margin="normal"
+                                />
                                 <TextField
                                     select
                                     fullWidth
