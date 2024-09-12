@@ -8,6 +8,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { incrementQuantity, decrementQuantity, removeFromCart, clearCart } from '../../store/slices/cartCount.js';
 import {cardHoverScale, cardHoverWithoutShadow} from "../../styles/Other/CardHover/index.js";
+import {Link} from "react-router-dom";
+import {ROUTES} from "../../utils/routes.js";
 
 // Стили для компонента
 const Item = styled(Paper)(({ theme }) => ({
@@ -123,14 +125,16 @@ const CartWindow = () => {
                 >
                     Clear cart
                 </Button>
-                <Button
-                    variant="contained"
-                    color="success"
-                    sx={cardHoverScale}
-                >
-                    Checkout
-                    <ShoppingCartCheckoutIcon style={{ color: 'white', marginLeft: 10 }} />
-                </Button>
+                <Link to={ROUTES.CHECKOUT}>
+                    <Button
+                        variant="contained"
+                        color="success"
+                        sx={cardHoverScale}
+                    >
+                        Checkout
+                        <ShoppingCartCheckoutIcon style={{ color: 'white', marginLeft: 10 }} />
+                    </Button>
+                </Link>
             </Box>
         </Box>
     );
