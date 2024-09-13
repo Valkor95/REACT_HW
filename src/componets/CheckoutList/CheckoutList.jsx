@@ -17,10 +17,13 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {useNavigate} from "react-router-dom";
 import {ROUTES} from "../../utils/routes.js";
+import {useDispatch} from "react-redux";
+import {clearCart} from "../../store/slices/cartCount.js";
 
 const cityOptions = ['Київ', 'Одеса', 'Харків', 'Львів', 'Кривий Ріг'];
 
 const CheckoutList = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
     const [deliveryMethod, setDeliveryMethod] = useState('pickup');
@@ -44,7 +47,7 @@ const CheckoutList = () => {
 
             if (response.ok) {
                 // Очищаем localStorage
-                localStorage.removeItem('cartCount');
+                dispatch(clearCart());
                 alert('Заказ успешно оформлен!');
                 navigate(ROUTES.HOME);
             }
