@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Box, Grid, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import ProductItem from '../CartWindow/child/ProductItem.jsx';
-import ActionButtons from '../CartWindow/child/ActionButtons';
 
 const CartWindow = () => {
     const cartItems = useSelector((state) => state.cartCount.items);
@@ -70,7 +69,6 @@ const CartWindow = () => {
                     );
                 })}
             </Grid>
-            <ActionButtons />
         </Box>
     );
 };
