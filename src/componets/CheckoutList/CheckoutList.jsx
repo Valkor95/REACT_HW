@@ -17,22 +17,22 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {useNavigate} from "react-router-dom";
 import {ROUTES} from "../../utils/routes.js";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {clearCart} from "../../store/slices/cartCount.js";
 import CartWindow from "../CartWindow/CartWindow.jsx";
 import ProductList from "./child/ProductList.jsx";
+import {useGetProductByIdQuery} from "../../store/API/slices/fakeStoreApi.js";
 
 const cityOptions = ['Київ', 'Одеса', 'Харків', 'Львів', 'Кривий Ріг'];
 
 const CheckoutList = () => {
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
     const [deliveryMethod, setDeliveryMethod] = useState('pickup');
 
     const handleSubmit = async (values) => {
-        console.log('Данные формы:', values);
-        // Пример отправки данных на fakeStore API
         try {
             const response = await fetch('https://fakestoreapi.com/carts', {
                 method: 'POST',
@@ -40,15 +40,15 @@ const CheckoutList = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    userId: 1,  // можно передать ID пользователя, если есть
+                    userId: 1,
                     date: new Date(),
-                    products: JSON.parse(localStorage.getItem('cartCount')) || [],  // Продукты из localStorage
-                    ...values  // Данные из формы
+                    products: JSON.parse(localStorage.getItem('cartCount')) || [],
+                    ...values
                 }),
             });
 
             if (response.ok) {
-                // Очищаем localStorage
+
                 dispatch(clearCart());
                 alert('Заказ успешно оформлен!');
                 navigate(ROUTES.HOME);
@@ -57,7 +57,7 @@ const CheckoutList = () => {
             console.error('Ошибка отправки данных:', error);
         }
     };
-    // Инициализация Formik
+
     const formik = useFormik({
         initialValues: {
             city: '',
@@ -118,14 +118,15 @@ const CheckoutList = () => {
     }, [formik.values.city, deliveryMethod]);
 
 
+
     return (
         <form onSubmit={formik.handleSubmit}>
             <Grid container spacing={2}>
                 {/* Левая часть */}
-                <ProductList/>
+
 
                 <Grid item xs={12} md={8}>
-
+                    <ProductList/>
                     <Typography variant="h5" gutterBottom>
                         Оформить заказ
                     </Typography>
