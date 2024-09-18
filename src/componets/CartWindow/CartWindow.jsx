@@ -1,31 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, Grid, IconButton, Paper, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { useSelector, useDispatch } from "react-redux";
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import DeleteIcon from '@mui/icons-material/Delete';
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import { incrementQuantity, decrementQuantity, removeFromCart, clearCart } from '../../store/slices/cartCount.js';
-import {cardHoverScale, cardHoverWithoutShadow} from "../../styles/Other/CardHover/index.js";
-import {Link} from "react-router-dom";
-import {ROUTES} from "../../utils/routes.js";
-
-// Стили для компонента
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    ...theme.applyStyles('dark', {
-        backgroundColor: '#1A2027',
-    }),
-}));
+import { Box, Grid, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
+import ProductItem from '../CartWindow/child/ProductItem.jsx';
+import ActionButtons from '../CartWindow/child/ActionButtons';
 
 const CartWindow = () => {
     const cartItems = useSelector((state) => state.cartCount.items);
-    const dispatch = useDispatch();
     const [productData, setProductData] = useState({});
     const [loading, setLoading] = useState(true);
     const [errors, setErrors] = useState([]);
@@ -86,61 +66,13 @@ const CartWindow = () => {
                     }
 
                     return (
-                        <Item sx={{ marginBottom: 2 }} key={cartItem.id}>
-                            <Grid container spacing={1} alignItems="center" sx={{ marginBottom: '10px' }}>
-                                <Grid item xs={1}>
-                                    <img src={product.image} alt={product.title} style={{ maxWidth: '100%', height: 'auto' }} />
-                                </Grid>
-                                <Grid item xs={5}>
-                                    <Typography variant="h6">{product.title}</Typography>
-                                </Grid>
-                                <Grid item xs={3}>
-                                    <Typography>Количество: {cartItem.quantity}</Typography>
-                                    <IconButton onClick={() => dispatch(incrementQuantity({ id: cartItem.id }))}>
-                                        <AddIcon sx={cardHoverScale}/>
-                                    </IconButton>
-                                    <IconButton onClick={() => dispatch(decrementQuantity({ id: cartItem.id }))}>
-                                        <RemoveIcon sx={cardHoverScale}/>
-                                    </IconButton>
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Typography>Цена: ${product.price * cartItem.quantity}</Typography>
-                                </Grid>
-                                <Grid item xs={1}>
-                                    <IconButton onClick={() => dispatch(removeFromCart({ id: cartItem.id }))}>
-                                        <DeleteIcon style={{ color: 'red' }} sx={cardHoverScale}/>
-                                    </IconButton>
-                                </Grid>
-                            </Grid>
-                        </Item>
+                        <ProductItem key={cartItem.id} product={product} cartItem={cartItem} />
                     );
                 })}
             </Grid>
-            <Box sx={{ marginTop: 2 }}>
-                <Button
-                    sx={{ ...cardHoverScale, marginRight: 2 }}
-                    variant="contained"
-                    color="secondary"
-                    onClick={() => dispatch(clearCart())}
-                >
-                    Clear cart
-                </Button>
-                <Link to={ROUTES.CHECKOUT}>
-                    <Button
-                        variant="contained"
-                        color="success"
-                        sx={cardHoverScale}
-                    >
-                        Checkout
-                        <ShoppingCartCheckoutIcon style={{ color: 'white', marginLeft: 10 }} />
-                    </Button>
-                </Link>
-            </Box>
+            <ActionButtons />
         </Box>
     );
 };
 
 export default CartWindow;
-
-
-
