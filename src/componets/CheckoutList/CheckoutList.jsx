@@ -25,7 +25,7 @@ import {useGetProductByIdQuery} from "../../store/API/slices/fakeStoreApi.js";
 const cityOptions = ['Київ', 'Одеса', 'Харків', 'Львів', 'Кривий Ріг'];
 
 const CheckoutList = () => {
-
+    const cartItems = useSelector((state) => state.cartCount.items);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
@@ -322,7 +322,7 @@ const CheckoutList = () => {
                             Итого к оплате: 985 ₴
                         </Typography>
 
-                        {/* Чекбокс подтверждения */}
+                        {/* Checkbox confirm */}
                         <FormControlLabel
                             control={
                                 <Checkbox
@@ -332,14 +332,14 @@ const CheckoutList = () => {
                                     onChange={formik.handleChange}
                                 />
                             }
-                            label="Подтверждаю заказ, я принимаю условия пользовательского соглашения"
+                            label="I confirm the order, I accept the terms of the user agreement"
                         />
                         {formik.touched.agree && formik.errors.agree && (
                             <Typography color="error">{formik.errors.agree}</Typography>
                         )}
 
                         <Button type="submit" variant="contained" color="primary" fullWidth disabled={!formik.isValid}>
-                            Оформить заказ
+                            Checkout
                         </Button>
                     </Box>
                 </Grid>
