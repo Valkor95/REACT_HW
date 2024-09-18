@@ -20,6 +20,7 @@ import {ROUTES} from "../../utils/routes.js";
 import {useDispatch} from "react-redux";
 import {clearCart} from "../../store/slices/cartCount.js";
 import CartWindow from "../CartWindow/CartWindow.jsx";
+import ProductList from "./child/ProductList.jsx";
 
 const cityOptions = ['Київ', 'Одеса', 'Харків', 'Львів', 'Кривий Ріг'];
 
@@ -121,6 +122,8 @@ const CheckoutList = () => {
         <form onSubmit={formik.handleSubmit}>
             <Grid container spacing={2}>
                 {/* Левая часть */}
+                <ProductList/>
+
                 <Grid item xs={12} md={8}>
 
                     <Typography variant="h5" gutterBottom>
