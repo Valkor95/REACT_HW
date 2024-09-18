@@ -5,6 +5,8 @@ import ProductImage from '../../CartWindow/child/ProductImage.jsx';
 import ProductTitle from '../../CartWindow/child/ProductTitle';
 import ProductQuantity from '../../CartWindow/child/ProductQuantity';
 import ProductPrice from '../../CartWindow/child/ProductPrice';
+import {useSelector} from "react-redux";
+import {useGetProductByIdQuery} from "../../../store/API/slices/fakeStoreApi.js";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
@@ -14,6 +16,8 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const ProductList = () => {
+    const cartItems = useSelector((state) => state.cartCount.items);
+    const {data: product, isLoading} = useGetProductByIdQuery()
 
     return (
         <Item sx={{ marginBottom: 2 }}>
