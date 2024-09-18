@@ -19,7 +19,6 @@ import {useNavigate} from "react-router-dom";
 import {ROUTES} from "../../utils/routes.js";
 import {useDispatch, useSelector} from "react-redux";
 import {clearCart} from "../../store/slices/cartCount.js";
-import CartWindow from "../CartWindow/CartWindow.jsx";
 import ProductList from "./child/ProductList.jsx";
 import {useGetProductByIdQuery} from "../../store/API/slices/fakeStoreApi.js";
 
@@ -122,7 +121,7 @@ const CheckoutList = () => {
     return (
         <form onSubmit={formik.handleSubmit}>
             <Grid container spacing={2}>
-                {/* Левая часть */}
+                {/* Left Side */}
 
 
                 <Grid item xs={12} md={8}>
@@ -311,7 +310,7 @@ const CheckoutList = () => {
                     </Box>
                 </Grid>
 
-                {/* Правая часть */}
+                {/* Right Side */}
                 <Grid item xs={12} md={4}>
                     <Box sx={{ border: '1px solid #ccc', padding: 2, borderRadius: '8px' }}>
                         <Typography variant="h6" gutterBottom>
