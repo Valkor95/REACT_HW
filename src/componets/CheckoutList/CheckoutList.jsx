@@ -19,6 +19,7 @@ import {useNavigate} from "react-router-dom";
 import {ROUTES} from "../../utils/routes.js";
 import {useDispatch} from "react-redux";
 import {clearCart} from "../../store/slices/cartCount.js";
+import CartWindow from "../CartWindow/CartWindow.jsx";
 
 const cityOptions = ['Київ', 'Одеса', 'Харків', 'Львів', 'Кривий Ріг'];
 
@@ -121,6 +122,7 @@ const CheckoutList = () => {
             <Grid container spacing={2}>
                 {/* Левая часть */}
                 <Grid item xs={12} md={8}>
+
                     <Typography variant="h5" gutterBottom>
                         Оформить заказ
                     </Typography>
