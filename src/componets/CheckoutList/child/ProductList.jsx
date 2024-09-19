@@ -33,7 +33,7 @@ const ProductList = () => {
                 }
 
                 return (
-                <Item sx={{marginBottom: 1}}>
+                <Item key={product.id} sx={{marginBottom: 1}}>
                     <Grid container spacing={1} alignItems="center" justifyContent='space-evenly' sx={{marginBottom: '10px'}}>
                         <ProductImage image={product.image} title={product.title}/>
                         <ProductTitle title={product.title}/>
