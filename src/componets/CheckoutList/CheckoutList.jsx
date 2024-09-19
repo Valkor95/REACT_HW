@@ -447,6 +447,10 @@ const CheckoutList = () => {
             patronymic: Yup.string(),
             phone: Yup.string().required('Укажите телефон'),
             agree: Yup.boolean().oneOf([true], 'Необходимо согласиться с условиями'),
+            warehouse: Yup.string().when('deliveryMethod', {
+                is: 'novaPoshta',
+                then: Yup.string().required('Выберите склад'),
+            }),
         }),
         onSubmit: handleSubmit,
         validateOnChange: true,
@@ -474,13 +478,14 @@ const CheckoutList = () => {
                     const data = await response.json();
                     setWarehouses(data.data);
                 } catch (error) {
-                    console.error('Error fetching warehouses:', error);
+                    console.error('Ошибка получения складов:', error);
                 }
             }
         };
 
         fetchWarehouses();
     }, [formik.values.city, deliveryMethod]);
+
 
     if (isLoading) return <Typography>Loading...</Typography>;
     if (error) return <Typography color="error">Error loading product data</Typography>;
@@ -644,14 +649,11 @@ const CheckoutList = () => {
                                         id="warehouse"
                                         name="warehouse"
                                         value={formik.values.warehouse}
-                                        onChange={(e) => {
-                                            formik.handleChange(e); // Обновляем значение в Formik
-                                            console.log('Selected warehouse:', e.target.value); // Проверяем выбранное значение
-                                        }}
+                                        onChange={formik.handleChange}
                                     >
                                         {warehouses.length > 0 ? (
                                             warehouses.map((warehouse) => (
-                                                <MenuItem key={warehouse.WarehouseID} value={warehouse.WarehouseID}>
+                                                <MenuItem key={warehouse.WarehouseID} value={warehouse.Description}>
                                                     {warehouse.Description}
                                                 </MenuItem>
                                             ))
@@ -661,6 +663,7 @@ const CheckoutList = () => {
                                             </MenuItem>
                                         )}
                                     </Select>
+
                                     {formik.touched.warehouse && formik.errors.warehouse && (
                                         <Typography color="error">{formik.errors.warehouse}</Typography>
                                     )}
