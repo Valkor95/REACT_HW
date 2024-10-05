@@ -1,21 +1,12 @@
 import React from "react";
-import CatalogPage from './pages/CatalogHome';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import {Container} from "@mui/material";
-import Navbar from "./componets/Navbar/Navbar.jsx";
+import RoutesComponent from "./ROUTES/RoutesComponent.jsx";
+import {BrowserRouter} from "react-router-dom";
 
 const App = () => {
     return (
-        <div>
-            <Router>
-                <Navbar/>
-                <Container>
-                    <Routes>
-                        <Route path="/" element={<CatalogPage />} />
-                    </Routes>
-                </Container>
-            </Router>
-        </div>
+        <BrowserRouter>
+            <RoutesComponent/>
+        </BrowserRouter>
     );
 };
 
