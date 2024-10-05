@@ -41,7 +41,7 @@ const Header = () => {
                             value=""
                         />
                     </div>
-                    <div className={styles.box}></div>
+                    {false && <div className={styles.box}></div>}
                 </form>
 
                 <div className={styles.account}>
@@ -51,10 +51,11 @@ const Header = () => {
                         </svg>
                     </Link>
 
-                    <Link to={routeNames.home} className={styles.favourites}>
-                        <svg className={styles['icon-fav']}>
-                            <use xlinkHref={`${icons}#heart`}/>
+                    <Link to={routeNames.cart} className={styles.cart}>
+                        <svg className={styles['icon-cart']}>
+                            <use xlinkHref={`${icons}#bag`}/>
                         </svg>
+                        <span className={styles.count}>2</span>
                     </Link>
                 </div>
 
